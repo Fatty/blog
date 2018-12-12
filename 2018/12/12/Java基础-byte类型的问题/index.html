@@ -8,21 +8,21 @@
 
 <title>
   
-    Jacob&#39;s blog
+    Java基础-byte类型的问题
   
 </title>
 
-<meta name="description" content="–title: Java基础-byte类型的问题categories:  语言基础   一句话解决问题 变量用于表示在程序中可能被改变的值。 a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报">
+<meta name="description" content="一句话解决问题 变量用于表示在程序中可能被改变的值。 a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报错，因为可能会丢失精度。int类型为java默认类型 及时损失精度 也会正常输出">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jacob&#39;s blog">
+<meta property="og:title" content="Java基础-byte类型的问题">
 <meta property="og:url" content="/blog/2018/12/12/Java基础-byte类型的问题/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="–title: Java基础-byte类型的问题categories:  语言基础   一句话解决问题 变量用于表示在程序中可能被改变的值。 a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报">
+<meta property="og:description" content="一句话解决问题 变量用于表示在程序中可能被改变的值。 a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报错，因为可能会丢失精度。int类型为java默认类型 及时损失精度 也会正常输出">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-12T14:26:13.514Z">
+<meta property="og:updated_time" content="2018-12-12T14:27:24.886Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jacob&#39;s blog">
-<meta name="twitter:description" content="–title: Java基础-byte类型的问题categories:  语言基础   一句话解决问题 变量用于表示在程序中可能被改变的值。 a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报">
+<meta name="twitter:title" content="Java基础-byte类型的问题">
+<meta name="twitter:description" content="一句话解决问题 变量用于表示在程序中可能被改变的值。 a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报错，因为可能会丢失精度。int类型为java默认类型 及时损失精度 也会正常输出">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -82,7 +82,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">2</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">3</span></li></ul>
               </li>
             
           
@@ -150,6 +150,10 @@
       
           <article id="post-Java基础-byte类型的问题" class="article article-type-post">
   
+    <h1 class="article-header">
+      Java基础-byte类型的问题
+    </h1>
+  
   
 
   <div class="article-info">
@@ -158,17 +162,16 @@
 </span>
 
     
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
+	</span>
+
 
     
 
   </div>
   <div class="article-entry">
-    <h2 id="–"><a href="#–" class="headerlink" title="–"></a>–</h2><p>title: Java基础-byte类型的问题<br>categories:</p>
-<ul>
-<li>语言基础</li>
-</ul>
-<hr>
-<p>一句话解决问题</p>
+    <p>一句话解决问题</p>
 <p>变量用于表示在程序中可能被改变的值。</p>
 <p>a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。<br>当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报错，因为可能会丢失精度。<br>int类型为java默认类型 及时损失精度 也会正常输出</p>
 
