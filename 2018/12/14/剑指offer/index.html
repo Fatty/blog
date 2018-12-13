@@ -8,21 +8,21 @@
 
 <title>
   
-    teammates navigation\
+    剑指offer
   
 </title>
 
-<meta name="description" content="团队博客导航沈赵杨灿郝培蓉贾婉华">
+<meta name="description" content="题目描述输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路冒泡排序 太慢 肯定不行剩下两种思路 ：  分治法（快排的一部分）  `import java.util.ArrayList;public class Solution {public ArrayList GetLeastNumbers_Solution(in">
 <meta property="og:type" content="article">
-<meta property="og:title" content="teammates navigation\">
-<meta property="og:url" content="/blog/2018/12/11/teammates/index.html">
+<meta property="og:title" content="剑指offer">
+<meta property="og:url" content="/blog/2018/12/14/剑指offer/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="团队博客导航沈赵杨灿郝培蓉贾婉华">
+<meta property="og:description" content="题目描述输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路冒泡排序 太慢 肯定不行剩下两种思路 ：  分治法（快排的一部分）  `import java.util.ArrayList;public class Solution {public ArrayList GetLeastNumbers_Solution(in">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-11T15:25:21.449Z">
+<meta property="og:updated_time" content="2018-12-13T17:29:14.448Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="teammates navigation\">
-<meta name="twitter:description" content="团队博客导航沈赵杨灿郝培蓉贾婉华">
+<meta name="twitter:title" content="剑指offer">
+<meta name="twitter:description" content="题目描述输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路冒泡排序 太慢 肯定不行剩下两种思路 ：  分治法（快排的一部分）  `import java.util.ArrayList;public class Solution {public ArrayList GetLeastNumbers_Solution(in">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -148,22 +148,22 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-teammates" class="article article-type-post">
+          <article id="post-剑指offer" class="article article-type-post">
   
     <h1 class="article-header">
-      teammates navigation\
+      剑指offer
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2018-12-11
+  2018-12-14
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/teammates/">teammates</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
 	</span>
 
 
@@ -171,7 +171,50 @@
 
   </div>
   <div class="article-entry">
-    <h2 id="团队博客导航"><a href="#团队博客导航" class="headerlink" title="团队博客导航"></a>团队博客导航</h2><h3 id="沈赵"><a href="#沈赵" class="headerlink" title="沈赵"></a><a href="https://fatty.github.io/blog/" target="_blank" rel="noopener">沈赵</a></h3><h3 id="杨灿"><a href="#杨灿" class="headerlink" title="杨灿"></a><a href="https://nobugjames.github.io/blog/" target="_blank" rel="noopener">杨灿</a></h3><h3 id="郝培蓉"><a href="#郝培蓉" class="headerlink" title="郝培蓉"></a><a href="https://haopeirong.github.io/blog/" target="_blank" rel="noopener">郝培蓉</a></h3><h3 id="贾婉华"><a href="#贾婉华" class="headerlink" title="贾婉华"></a><a href="https://mollymolly233.github.io/blog/" target="_blank" rel="noopener">贾婉华</a></h3>
+    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>冒泡排序 太慢 肯定不行<br>剩下两种思路 ：</p>
+<ul>
+<li><p>分治法（快排的一部分）</p>
+<ul>
+<li>`import java.util.ArrayList;<br>public class Solution {<br>public ArrayList<integer> GetLeastNumbers_Solution(int [] input, int k) {<br>  ArrayList<integer> list = new ArrayList<integer>();<br>  if(input.length &lt; k){<pre><code>return list;
+</code></pre>  }else{<pre><code>//思路：此时采用分治法中选取中轴为k input[k-1]左侧小于右侧
+exchange(input,k,0,input.length-1);
+k--;
+while(k &gt;= 0){
+    list.add(input[k]);
+    k--;
+}
+return list;
+</code></pre>  }<br>}<br>public void exchange(int [] input, int k,int l,int r){<br>  if(l&gt;=r||l&lt;0||r&gt;input.length-1){<pre><code>return;
+</code></pre>  }<br>  int i = l;<br>  int j = r;<br>  int temp = input[i];<br>  while(i&lt;j){<pre><code>while(i&lt;j &amp;&amp; input[j] &gt;= temp) j--;
+input[i] = input[j];
+while(i&lt;j &amp;&amp; input[i] &lt;= temp) i++;
+input[j] = input[i];
+</code></pre>  }<br>  input[i] = temp;<br>  if(i == k){<pre><code>return ;
+</code></pre>  }else if(i &lt; k){<pre><code>exchange(input,k,i+1,r);
+</code></pre>  }else if(i &gt; k){<pre><code>exchange(input,k,l,i-1);
+</code></pre>  }<br>  return;<br>}<br>}<code></code></integer></integer></integer></li>
+</ul>
+</li>
+<li><p>大根堆（Java中优先队列是大根堆，初始化一个容量为k的大根堆，每次读入数据病并与根对比，小得入队，大的出队）</p>
+<ul>
+<li>`import java.util.ArrayList;<br>import java.util.PriorityQueue;<br>import java.util.Comparator;<br>public class Solution2 {<br>public ArrayList<integer> GetLeastNumbers_Solution(int[] input, int k) {<br>ArrayList<integer> result = new ArrayList<integer>();<br>int length = input.length;<br>if(k &gt; length || k == 0){<pre><code>return result;
+</code></pre>}<br> PriorityQueue<integer> maxHeap = new PriorityQueue<integer>(k, new Comparator<integer>() {<br><code></code><pre><code>public int compare(Integer o1, Integer o2) {
+    return o2.compareTo(o1);
+}``
+</code></pre> });<br> for (int i = 0; i &lt; length; i++) {<pre><code>if (maxHeap.size() != k) {
+    maxHeap.offer(input[i]);
+} else if (maxHeap.peek() &gt; input[i]) {
+    Integer temp = maxHeap.poll();
+    temp = null;
+    maxHeap.offer(input[i]);
+}
+</code></pre> }<br> for (Integer integer : maxHeap) {<pre><code>result.add(integer);
+</code></pre> }<br> return result;<br>}<br>}`</integer></integer></integer></integer></integer></integer></li>
+</ul>
+</li>
+</ul>
+
   </div>
 </article>
 
