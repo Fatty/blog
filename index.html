@@ -179,7 +179,7 @@
           <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>冒泡排序 太慢 肯定不行<br>剩下两种思路 ：</p>
 <ul>
-<li><p>分治法（快排的一部分）</p>
+<li><p>分治法（快排的一部分） O（nlogn）</p>
 <ul>
 <li>`import java.util.ArrayList;<br>public class Solution {<br>public ArrayList<integer> GetLeastNumbers_Solution(int [] input, int k) {<br>  ArrayList<integer> list = new ArrayList<integer>();<br>  if(input.length &lt; k){<pre><code>return list;
 </code></pre>  }else{<pre><code>//思路：此时采用分治法中选取中轴为k input[k-1]左侧小于右侧
@@ -201,7 +201,7 @@ input[j] = input[i];
 </code></pre>  }<br>  return;<br>}<br>}<code></code></integer></integer></integer></li>
 </ul>
 </li>
-<li><p>大根堆（Java中优先队列是大根堆，初始化一个容量为k的大根堆，每次读入数据病并与根对比，小得入队，大的出队）</p>
+<li><p>大根堆（Java中优先队列是大根堆，初始化一个容量为k的大根堆，每次读入数据病并与根对比，小得入队，大的出队） O(nlogk)</p>
 <ul>
 <li>`import java.util.ArrayList;<br>import java.util.PriorityQueue;<br>import java.util.Comparator;<br>public class Solution2 {<br>public ArrayList<integer> GetLeastNumbers_Solution(int[] input, int k) {<br>ArrayList<integer> result = new ArrayList<integer>();<br>int length = input.length;<br>if(k &gt; length || k == 0){<pre><code>return result;
 </code></pre>}<br> PriorityQueue<integer> maxHeap = new PriorityQueue<integer>(k, new Comparator<integer>() {<br><code></code><pre><code>public int compare(Integer o1, Integer o2) {
