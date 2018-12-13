@@ -8,21 +8,21 @@
 
 <title>
   
-    Jacob&#39;s blog
+    Java基础-逻辑运算符与位运算符
   
 </title>
 
-<meta name="description" content="–title: Java基础-逻辑运算符与位运算符categories:  语言基础   逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。">
+<meta name="description" content="逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。 解法1：x = x + y; y = x - y; x = x - y; 解法2：x =">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jacob&#39;s blog">
+<meta property="og:title" content="Java基础-逻辑运算符与位运算符">
 <meta property="og:url" content="/blog/2018/12/13/Java基础-逻辑运算符与位运算符/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="–title: Java基础-逻辑运算符与位运算符categories:  语言基础   逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。">
+<meta property="og:description" content="逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。 解法1：x = x + y; y = x - y; x = x - y; 解法2：x =">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-13T15:08:04.872Z">
+<meta property="og:updated_time" content="2018-12-13T15:11:30.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jacob&#39;s blog">
-<meta name="twitter:description" content="–title: Java基础-逻辑运算符与位运算符categories:  语言基础   逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。">
+<meta name="twitter:title" content="Java基础-逻辑运算符与位运算符">
+<meta name="twitter:description" content="逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。 解法1：x = x + y; y = x - y; x = x - y; 解法2：x =">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -82,7 +82,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">3</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
@@ -150,6 +150,10 @@
       
           <article id="post-Java基础-逻辑运算符与位运算符" class="article article-type-post">
   
+    <h1 class="article-header">
+      Java基础-逻辑运算符与位运算符
+    </h1>
+  
   
 
   <div class="article-info">
@@ -158,17 +162,16 @@
 </span>
 
     
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
+	</span>
+
 
     
 
   </div>
   <div class="article-entry">
-    <h2 id="–"><a href="#–" class="headerlink" title="–"></a>–</h2><p>title: Java基础-逻辑运算符与位运算符<br>categories:</p>
-<ul>
-<li>语言基础</li>
-</ul>
-<hr>
-<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
+    <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
 <li>&amp; 与</li>
 <li>&amp;&amp; 与 左侧为false时 右侧不执行（短路）</li>
 <li>| 或</li>
