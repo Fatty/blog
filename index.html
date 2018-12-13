@@ -201,7 +201,7 @@ input[j] = input[i];
 </code></pre>  }<br>  return;<br>}<br>}<code></code></integer></integer></integer></li>
 </ul>
 </li>
-<li><p>大根堆（Java中优先队列是大根堆，初始化一个容量为k的大根堆，每次读入数据病并与根对比，小得入队，大的出队） O(nlogk)</p>
+<li><p>大根堆（Java中优先队列是大根堆，初始化一个容量为k的大根堆，每次读入数据病并与根对比，小数入队，大数出队） O(nlogk)</p>
 <ul>
 <li>`import java.util.ArrayList;<br>import java.util.PriorityQueue;<br>import java.util.Comparator;<br>public class Solution2 {<br>public ArrayList<integer> GetLeastNumbers_Solution(int[] input, int k) {<br>ArrayList<integer> result = new ArrayList<integer>();<br>int length = input.length;<br>if(k &gt; length || k == 0){<pre><code>return result;
 </code></pre>}<br> PriorityQueue<integer> maxHeap = new PriorityQueue<integer>(k, new Comparator<integer>() {<br><code></code><pre><code>public int compare(Integer o1, Integer o2) {
