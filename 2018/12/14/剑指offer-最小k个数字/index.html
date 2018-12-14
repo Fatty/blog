@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Jacob&#39;s blog">
 <meta property="og:description" content="题目描述输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路冒泡排序 太慢 肯定不行剩下两种思路 ：  分治法（快排的一部分） O（nlogn）  `import java.util.ArrayList;public class Solution {public ArrayList GetLeastNumbers_So">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-14T01:44:03.855Z">
+<meta property="og:updated_time" content="2018-12-14T01:50:23.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer-找数组最小k个数">
 <meta name="twitter:description" content="题目描述输入n个整数，找出其中最小的K个数。例如输入4,5,1,6,2,7,3,8这8个数字，则最小的4个数字是1,2,3,4,。 解题思路冒泡排序 太慢 肯定不行剩下两种思路 ：  分治法（快排的一部分） O（nlogn）  `import java.util.ArrayList;public class Solution {public ArrayList GetLeastNumbers_So">
@@ -196,7 +196,7 @@ input[j] = input[i];
 </code></pre>  }<br>  return;<br>}<br>}<code></code></integer></integer></integer></li>
 </ul>
 </li>
-<li><p>大根堆（Java中优先队列是大根堆，初始化一个容量为k的大根堆，每次读入数据病并与根对比，小数入队，大数出队） O(nlogk)</p>
+<li><p>大根堆（Java中优先队列是大根堆，初始化一个容量为k的大根堆，每次读入一个数据与根对比，小数入队，大数出队） O(nlogk)</p>
 <ul>
 <li>`import java.util.ArrayList;<br>import java.util.PriorityQueue;<br>import java.util.Comparator;<br>public class Solution2 {<br>public ArrayList<integer> GetLeastNumbers_Solution(int[] input, int k) {<br>ArrayList<integer> result = new ArrayList<integer>();<br>int length = input.length;<br>if(k &gt; length || k == 0){<pre><code>return result;
 </code></pre>}<br> PriorityQueue<integer> maxHeap = new PriorityQueue<integer>(k, new Comparator<integer>() {<br><code></code><pre><code>public int compare(Integer o1, Integer o2) {
