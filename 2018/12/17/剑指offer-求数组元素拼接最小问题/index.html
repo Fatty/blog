@@ -8,21 +8,21 @@
 
 <title>
   
-    动态规划思路\
+    剑指offer-求数组元素拼接最小问题
   
 </title>
 
-<meta name="description" content="一句话讲明动态规划动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。programming 特指一种表格法，并非编写计算机程序。摘自算法导论">
+<meta name="description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划思路\">
-<meta property="og:url" content="/blog/2018/12/10/动态规划思路/index.html">
+<meta property="og:title" content="剑指offer-求数组元素拼接最小问题">
+<meta property="og:url" content="/blog/2018/12/17/剑指offer-求数组元素拼接最小问题/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="一句话讲明动态规划动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。programming 特指一种表格法，并非编写计算机程序。摘自算法导论">
+<meta property="og:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-11T15:07:58.469Z">
+<meta property="og:updated_time" content="2018-12-17T08:33:54.269Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="动态规划思路\">
-<meta name="twitter:description" content="一句话讲明动态规划动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。programming 特指一种表格法，并非编写计算机程序。摘自算法导论">
+<meta name="twitter:title" content="剑指offer-求数组元素拼接最小问题">
+<meta name="twitter:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -148,17 +148,17 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-动态规划思路" class="article article-type-post">
+          <article id="post-剑指offer-求数组元素拼接最小问题" class="article article-type-post">
   
     <h1 class="article-header">
-      动态规划思路\
+      剑指offer-求数组元素拼接最小问题
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2018-12-10
+  2018-12-17
 </span>
 
     
@@ -171,7 +171,12 @@
 
   </div>
   <div class="article-entry">
-    <h2 id="一句话讲明动态规划"><a href="#一句话讲明动态规划" class="headerlink" title="一句话讲明动态规划"></a>一句话讲明动态规划</h2><p>动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。<br>programming 特指一种表格法，并非编写计算机程序。<br>摘自算法导论 </p>
+    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>本质来讲是做排序，此处所用排序方法为当s1+s2&gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。 </p>
+<p>`import java.util.ArrayList;<br>import java.util.Collections;<br>import java.util.Comparator;<br>import java.util.Iterator;<br>public class Solution4{<br>    public String PrintMinNumber(int [] numbers) {<br>        ArrayList<string> a1 = new ArrayList<string>();<br>        for(int i = 0; i &lt; numbers.length; i++){<br>            a1.add(String.valueOf(numbers[i]));<br>        }<br>        Collections.sort(a1,new Comparator<object>() {<br>            public int compare(Object o1,Object o2) {<br>                String s1 = (String) o1 + (String) o2;<br>                String s2 = (String) o2 + (String) o1;<br>                return s1.compareTo(s2)&gt;0?1:-1;<br>            }<br>        });<br>        StringBuilder result = new StringBuilder();<br>        Iterator<string> it1 = a1.iterator();<br>        while(it1.hasNext()) {<br>            result.append(it1.next());<br>        }</string></object></string></string></p>
+<pre><code>    return result.toString();
+}
+</code></pre><p>}`</p>
 
   </div>
 </article>
