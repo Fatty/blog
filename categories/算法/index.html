@@ -178,8 +178,7 @@
       <div class="article-entry">
         
           <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>为了求取丑数数组，所有的丑数都可以由同一个公式取得：<br>f(x,y,z) = (2^x)<em>(3^y)</em>(5^z)(x,y,z为自然数)<br>每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。<br>队列t2存乘2的结果<br>队列t3存乘3的结果<br>队列t4存乘5的结果<br>数列中存储当前序列的丑数，一个丑数必定由另一个丑数乘2，3，5取得，因此，开始情况下t2,t3,t5三个队列的队头都为1，t2,t3,t5都为指针指向当前的位置（数组情况下是下标），当前数值被取走后，自动指向下一个数字并乘以对应的值，取得新队头，三个队头进行比较，每次取最小的队头存入丑数序列。</p>
-<p><code>import java.util.ArrayList;
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>为了求取丑数数组，所有的丑数都可以由同一个公式取得：<br>f(x,y,z) = (2^x)<em>(3^y)</em>(5^z)(x,y,z为自然数)<br>每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。<br>队列t2存乘2的结果<br>队列t3存乘3的结果<br>队列t4存乘5的结果<br>数列中存储当前序列的丑数，一个丑数必定由另一个丑数乘2，3，5取得，因此，开始情况下t2,t3,t5三个队列的队头都为1，t2,t3,t5都为指针指向当前的位置（数组情况下是下标），当前数值被取走后，自动指向下一个数字并乘以对应的值，取得新队头，三个队头进行比较，每次取最小的队头存入丑数序列。<br><code>import java.util.ArrayList;
 public class Solution5 {
     public int GetUglyNumber_Solution(int index) {
         ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
