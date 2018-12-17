@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Jacob&#39;s blog">
 <meta property="og:description" content="题目描述把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 解题思路为了求取丑数数组，所有的丑数都可以由同一个公式取得：f(x,y,z) = (2^x)(3^y)(5^z)(x,y,z为自然数)每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。队列t2存乘2的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-17T12:25:18.400Z">
+<meta property="og:updated_time" content="2018-12-17T12:29:11.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="剑指offer-求第N个丑数问题">
 <meta name="twitter:description" content="题目描述把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 解题思路为了求取丑数数组，所有的丑数都可以由同一个公式取得：f(x,y,z) = (2^x)(3^y)(5^z)(x,y,z为自然数)每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。队列t2存乘2的">
@@ -173,8 +173,39 @@
   <div class="article-entry">
     <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>为了求取丑数数组，所有的丑数都可以由同一个公式取得：<br>f(x,y,z) = (2^x)<em>(3^y)</em>(5^z)(x,y,z为自然数)<br>每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。<br>队列t2存乘2的结果<br>队列t3存乘3的结果<br>队列t4存乘5的结果<br>数列中存储当前序列的丑数，一个丑数必定由另一个丑数乘2，3，5取得，因此，开始情况下t2,t3,t5三个队列的队头都为1，t2,t3,t5都为指针指向当前的位置（数组情况下是下标），当前数值被取走后，自动指向下一个数字并乘以对应的值，取得新队头，三个队头进行比较，每次取最小的队头存入丑数序列。</p>
-<p>`import java.util.ArrayList;</p>
-<p>public class Solution5 {<br>    public int GetUglyNumber_Solution(int index) {<br>        ArrayList<integer> list = new ArrayList<integer>();<br>        if (index &lt;= 6) {<br>            return index;<br>        } else {<br>            int t2 = 0, t3 = 0, t5 = 0;<br>            list.add(1);<br>            for (int i = 1; list.size() &lt; index; i++) {<br>                int a2 = list.get(t2) <em> 2;<br>                int a3 = list.get(t3) </em> 3;<br>                int a5 = list.get(t5) <em> 5;<br>                int temp = a2 &lt; (a3 &lt; a5 ? a3 : a5) ? a2 : (a3 &lt; a5 ? a3 : a5);<br>                list.add(temp);<br>                System.out.println(“temp :” + temp);<br>                System.out.println(“t2 :” + t2 + “:” + list.get(t2) </em> 2);<br>                System.out.println(“t3 :” + t3 + “:” + list.get(t3) <em> 3);<br>                System.out.println(“t3 :” + t5 + “:” + list.get(t5) </em> 5);<br>                if (temp == list.get(t2) <em> 2) {<br>                    t2++;<br>                }<br>                if (temp == list.get(t3) </em> 3) {<br>                    t3++;<br>                }<br>                if (temp == list.get(t5) * 5) {<br>                    t5++;<br>                }<br>            }<br>        }<br>        return list.get(index - 1);<br>    }<br>}`  </integer></integer></p>
+<p><code>import java.util.ArrayList;
+public class Solution5 {
+    public int GetUglyNumber_Solution(int index) {
+        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+        if (index &lt;= 6) {
+            return index;
+        } else {
+            int t2 = 0, t3 = 0, t5 = 0;
+            list.add(1);
+            for (int i = 1; list.size() &lt; index; i++) {
+                int a2 = list.get(t2) * 2;
+                int a3 = list.get(t3) * 3;
+                int a5 = list.get(t5) * 5;
+                int temp = a2 &lt; (a3 &lt; a5 ? a3 : a5) ? a2 : (a3 &lt; a5 ? a3 : a5);
+                list.add(temp);
+                System.out.println(&quot;temp :&quot; + temp);
+                System.out.println(&quot;t2 :&quot; + t2 + &quot;:&quot; + list.get(t2) * 2);
+                System.out.println(&quot;t3 :&quot; + t3 + &quot;:&quot; + list.get(t3) * 3);
+                System.out.println(&quot;t3 :&quot; + t5 + &quot;:&quot; + list.get(t5) * 5);
+                if (temp == list.get(t2) * 2) {
+                    t2++;
+                }
+                if (temp == list.get(t3) * 3) {
+                    t3++;
+                }
+                if (temp == list.get(t5) * 5) {
+                    t5++;
+                }
+            }
+        }
+        return list.get(index - 1);
+    }
+}</code>  </p>
 
   </div>
 </article>
