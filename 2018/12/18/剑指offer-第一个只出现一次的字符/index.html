@@ -8,21 +8,21 @@
 
 <title>
   
-    剑指offer-求数组元素拼接最小问题
+    剑指offer-第一个只出现一次的字符
   
 </title>
 
-<meta name="description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
+<meta name="description" content="题目描述在一个字符串(0&amp;lt;=字符串长度&amp;lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写） 解题思路 看到找只出现一次的字符，我第一时间想到用Arraylist存，遇到新字符存入，遇到重复字符去掉，但这样只有在重复字符成对出现时才成立，因此舍弃此想法。 苦思无果后寻求网上的帮助，网上的方法是采用存储键值对的方式（Hash">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer-求数组元素拼接最小问题">
-<meta property="og:url" content="/blog/2018/12/17/剑指offer-求数组元素拼接最小问题/index.html">
+<meta property="og:title" content="剑指offer-第一个只出现一次的字符">
+<meta property="og:url" content="/blog/2018/12/18/剑指offer-第一个只出现一次的字符/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
+<meta property="og:description" content="题目描述在一个字符串(0&amp;lt;=字符串长度&amp;lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写） 解题思路 看到找只出现一次的字符，我第一时间想到用Arraylist存，遇到新字符存入，遇到重复字符去掉，但这样只有在重复字符成对出现时才成立，因此舍弃此想法。 苦思无果后寻求网上的帮助，网上的方法是采用存储键值对的方式（Hash">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-17T08:33:54.269Z">
+<meta property="og:updated_time" content="2018-12-18T02:21:36.037Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer-求数组元素拼接最小问题">
-<meta name="twitter:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
+<meta name="twitter:title" content="剑指offer-第一个只出现一次的字符">
+<meta name="twitter:description" content="题目描述在一个字符串(0&amp;lt;=字符串长度&amp;lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写） 解题思路 看到找只出现一次的字符，我第一时间想到用Arraylist存，遇到新字符存入，遇到重复字符去掉，但这样只有在重复字符成对出现时才成立，因此舍弃此想法。 苦思无果后寻求网上的帮助，网上的方法是采用存储键值对的方式（Hash">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -148,17 +148,17 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-剑指offer-求数组元素拼接最小问题" class="article article-type-post">
+          <article id="post-剑指offer-第一个只出现一次的字符" class="article article-type-post">
   
     <h1 class="article-header">
-      剑指offer-求数组元素拼接最小问题
+      剑指offer-第一个只出现一次的字符
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2018-12-17
+  2018-12-18
 </span>
 
     
@@ -171,12 +171,29 @@
 
   </div>
   <div class="article-entry">
-    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>本质来讲是做排序，此处所用排序方法为当s1+s2&gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。 </p>
-<p>`import java.util.ArrayList;<br>import java.util.Collections;<br>import java.util.Comparator;<br>import java.util.Iterator;<br>public class Solution4{<br>    public String PrintMinNumber(int [] numbers) {<br>        ArrayList<string> a1 = new ArrayList<string>();<br>        for(int i = 0; i &lt; numbers.length; i++){<br>            a1.add(String.valueOf(numbers[i]));<br>        }<br>        Collections.sort(a1,new Comparator<object>() {<br>            public int compare(Object o1,Object o2) {<br>                String s1 = (String) o1 + (String) o2;<br>                String s2 = (String) o2 + (String) o1;<br>                return s1.compareTo(s2)&gt;0?1:-1;<br>            }<br>        });<br>        StringBuilder result = new StringBuilder();<br>        Iterator<string> it1 = a1.iterator();<br>        while(it1.hasNext()) {<br>            result.append(it1.next());<br>        }</string></object></string></string></p>
-<pre><code>    return result.toString();
+    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个字符串(0&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>看到找只出现一次的字符，我第一时间想到用Arraylist存，遇到新字符存入，遇到重复字符去掉，但这样只有在重复字符成对出现时才成立，因此舍弃此想法。</li>
+<li>苦思无果后寻求网上的帮助，网上的方法是采用存储键值对的方式（HashMap,LinkedHashMap,HashTable,TreeMap），每当出现一次重复字符，重复字符对应的值加一。最后通过重新遍历数组，读取键对应的值的方式取得第一个出现的单独字符。<br>  `import java.util.LinkedHashMap;<br>public class Solution6 {<br>  public int FirstNotRepeatingChar(String str) {<pre><code>char[] c = str.toCharArray();
+LinkedHashMap&lt;Character,Integer&gt; map = new LinkedHashMap&lt;Character,Integer&gt;();
+for(int i = 0; i &lt; c.length; i++){
+    if(map.containsKey(c[i])) {
+        int value = map.get(c[i]);
+        map.put(c[i], ++value);
+    }else {
+        map.put(c[i], 0);
+    }
 }
-</code></pre><p>}`</p>
+int loc = -1;
+for(int i = 0; i &lt; c.length ;i++) {
+    if(0==map.get(c[i])) {
+        loc =  i;
+        break;
+    }
+}
+return loc;
+</code></pre>  }<br>}`</li>
+</ul>
 
   </div>
 </article>

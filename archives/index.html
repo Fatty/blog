@@ -78,7 +78,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
@@ -92,7 +92,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">12</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">13</span></li></ul>
               </li>
             
           
@@ -156,6 +156,66 @@
           <h1><a href="/blog/archives/2018" class="archive-year">2018</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/18/剑指offer-第一个只出现一次的字符/">
+  剑指offer-第一个只出现一次的字符
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/18/剑指offer-第一个只出现一次的字符/"><span class="article-date">
+  2018-12-18
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在一个字符串(0&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置, 如果没有则返回 -1（需要区分大小写）</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ul>
+<li>看到找只出现一次的字符，我第一时间想到用Arraylist存，遇到新字符存入，遇到重复字符去掉，但这样只有在重复字符成对出现时才成立，因此舍弃此想法。</li>
+<li>苦思无果后寻求网上的帮助，网上的方法是采用存储键值对的方式（HashMap,LinkedHashMap,HashTable,TreeMap），每当出现一次重复字符，重复字符对应的值加一。最后通过重新遍历数组，读取键对应的值的方式取得第一个出现的单独字符。<br>  `import java.util.LinkedHashMap;<br>public class Solution6 {<br>  public int FirstNotRepeatingChar(String str) {<pre><code>char[] c = str.toCharArray();
+LinkedHashMap&lt;Character,Integer&gt; map = new LinkedHashMap&lt;Character,Integer&gt;();
+for(int i = 0; i &lt; c.length; i++){
+    if(map.containsKey(c[i])) {
+        int value = map.get(c[i]);
+        map.put(c[i], ++value);
+    }else {
+        map.put(c[i], 0);
+    }
+}
+int loc = -1;
+for(int i = 0; i &lt; c.length ;i++) {
+    if(0==map.get(c[i])) {
+        loc =  i;
+        break;
+    }
+}
+return loc;
+</code></pre>  }<br>}`</li>
+</ul>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -709,43 +769,6 @@ public int FindGreatestSumOfSubArray(int[] array) {
 </li>
 </ul>
 
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/11/teammates/">
-  teammates navigation\
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/11/teammates/"><span class="article-date">
-  2018-12-11
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/teammates/">teammates</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="团队博客导航"><a href="#团队博客导航" class="headerlink" title="团队博客导航"></a>团队博客导航</h2><h3 id="沈赵"><a href="#沈赵" class="headerlink" title="沈赵"></a><a href="https://fatty.github.io/blog/" target="_blank" rel="noopener">沈赵</a></h3><h3 id="杨灿"><a href="#杨灿" class="headerlink" title="杨灿"></a><a href="https://nobugjames.github.io/blog/" target="_blank" rel="noopener">杨灿</a></h3><h3 id="郝培蓉"><a href="#郝培蓉" class="headerlink" title="郝培蓉"></a><a href="https://haopeirong.github.io/blog/" target="_blank" rel="noopener">郝培蓉</a></h3><h3 id="贾婉华"><a href="#贾婉华" class="headerlink" title="贾婉华"></a><a href="https://mollymolly233.github.io/blog/" target="_blank" rel="noopener">贾婉华</a></h3>
         
       </div>
     </div>
