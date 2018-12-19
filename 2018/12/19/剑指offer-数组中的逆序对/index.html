@@ -8,21 +8,21 @@
 
 <title>
   
-    剑指offer-求数组元素拼接最小问题
+    剑指offer-数组中的逆序对
   
 </title>
 
-<meta name="description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
+<meta name="description" content="题目描述在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007 解题思路利用归并排序原理，将数组用分治法排序，在排序过程中，每一次调换位置逆序数增加mid-i+1（mid为左侧归并的数组长度，i为当前数字调换后的位置，+1为数字本身占一个位置），最终加">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer-求数组元素拼接最小问题">
-<meta property="og:url" content="/blog/2018/12/17/剑指offer-求数组元素拼接最小问题/index.html">
+<meta property="og:title" content="剑指offer-数组中的逆序对">
+<meta property="og:url" content="/blog/2018/12/19/剑指offer-数组中的逆序对/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
+<meta property="og:description" content="题目描述在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007 解题思路利用归并排序原理，将数组用分治法排序，在排序过程中，每一次调换位置逆序数增加mid-i+1（mid为左侧归并的数组长度，i为当前数字调换后的位置，+1为数字本身占一个位置），最终加">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-17T08:33:54.269Z">
+<meta property="og:updated_time" content="2018-12-19T05:35:23.889Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer-求数组元素拼接最小问题">
-<meta name="twitter:description" content="题目描述输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。 解题思路本质来讲是做排序，此处所用排序方法为当s1+s2&amp;gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。  `import java.util.ArrayList;import java.util.Collections;import java.util.Compara">
+<meta name="twitter:title" content="剑指offer-数组中的逆序对">
+<meta name="twitter:description" content="题目描述在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007 解题思路利用归并排序原理，将数组用分治法排序，在排序过程中，每一次调换位置逆序数增加mid-i+1（mid为左侧归并的数组长度，i为当前数字调换后的位置，+1为数字本身占一个位置），最终加">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -148,17 +148,17 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-剑指offer-求数组元素拼接最小问题" class="article article-type-post">
+          <article id="post-剑指offer-数组中的逆序对" class="article article-type-post">
   
     <h1 class="article-header">
-      剑指offer-求数组元素拼接最小问题
+      剑指offer-数组中的逆序对
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2018-12-17
+  2018-12-19
 </span>
 
     
@@ -171,12 +171,56 @@
 
   </div>
   <div class="article-entry">
-    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>本质来讲是做排序，此处所用排序方法为当s1+s2&gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。 </p>
-<p>`import java.util.ArrayList;<br>import java.util.Collections;<br>import java.util.Comparator;<br>import java.util.Iterator;<br>public class Solution4{<br>    public String PrintMinNumber(int [] numbers) {<br>        ArrayList<string> a1 = new ArrayList<string>();<br>        for(int i = 0; i &lt; numbers.length; i++){<br>            a1.add(String.valueOf(numbers[i]));<br>        }<br>        Collections.sort(a1,new Comparator<object>() {<br>            public int compare(Object o1,Object o2) {<br>                String s1 = (String) o1 + (String) o2;<br>                String s2 = (String) o2 + (String) o1;<br>                return s1.compareTo(s2)&gt;0?1:-1;<br>            }<br>        });<br>        StringBuilder result = new StringBuilder();<br>        Iterator<string> it1 = a1.iterator();<br>        while(it1.hasNext()) {<br>            result.append(it1.next());<br>        }</string></object></string></string></p>
-<pre><code>    return result.toString();
+    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>利用归并排序原理，将数组用分治法排序，在排序过程中，每一次调换位置逆序数增加mid-i+1（mid为左侧归并的数组长度，i为当前数字调换后的位置，+1为数字本身占一个位置），最终加上所有的逆序数，得到最终结果</p>
+<pre><code>public class Solution7 {
+private int base = 1000000007;
+private int count = 0;
+public int InversePairs(int [] array) {
+    if(array.length==0) {
+        return 0;
+    }else {
+        sort(array,0,array.length-1);
+        return count;
+    }
 }
-</code></pre><p>}`</p>
+private void sort(int [] array,int start,int end) {
+    if(start==end)
+        return;
+    int mid = (start+end) &gt;&gt; 1;
+    sort(array,start,mid);
+    sort(array,mid+1,end);
+    merge(array,start,mid,end);
+}
+private void merge(int[] array,int start,int mid,int end) {
+    if(start==end) {
+        return;
+    }
+    int temp[] = new int[end-start+1];
+    int i = start;
+    int j = mid+1;
+    int k=0;
+    while(i&lt;=mid&amp;&amp;j&lt;=end) {
+        if(array[i]&lt;=array[j]) {
+            temp[k++] = array[i++];
+        }else {
+            temp[k++] = array[j++];
+            count += mid-i+1;//j在mid右侧已排好序，进入左侧后，
+                 //说明这个数字之前的逆序数为左侧数组中i后面的数字个数
+            count %= base;//每一步 取模防止溢出
+        }
+    }
+    while(i&lt;mid) {
+        temp[k++]=array[i++];
+    }
+    while(j&lt;end) {
+        temp[k++]=array[j++];
+    }
+    for(k = 0; k &lt; temp.length; k++) {
+        array[start+k]=temp[k];
+    }
+}
+</code></pre><p>}</p>
 
   </div>
 </article>

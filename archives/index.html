@@ -78,7 +78,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
@@ -92,7 +92,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">13</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">14</span></li></ul>
               </li>
             
           
@@ -156,6 +156,93 @@
           <h1><a href="/blog/archives/2018" class="archive-year">2018</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/19/剑指offer-数组中的逆序对/">
+  剑指offer-数组中的逆序对
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/19/剑指offer-数组中的逆序对/"><span class="article-date">
+  2018-12-19
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组,求出这个数组中的逆序对的总数P。并将P对1000000007取模的结果输出。 即输出P%1000000007</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>利用归并排序原理，将数组用分治法排序，在排序过程中，每一次调换位置逆序数增加mid-i+1（mid为左侧归并的数组长度，i为当前数字调换后的位置，+1为数字本身占一个位置），最终加上所有的逆序数，得到最终结果</p>
+<pre><code>public class Solution7 {
+private int base = 1000000007;
+private int count = 0;
+public int InversePairs(int [] array) {
+    if(array.length==0) {
+        return 0;
+    }else {
+        sort(array,0,array.length-1);
+        return count;
+    }
+}
+private void sort(int [] array,int start,int end) {
+    if(start==end)
+        return;
+    int mid = (start+end) &gt;&gt; 1;
+    sort(array,start,mid);
+    sort(array,mid+1,end);
+    merge(array,start,mid,end);
+}
+private void merge(int[] array,int start,int mid,int end) {
+    if(start==end) {
+        return;
+    }
+    int temp[] = new int[end-start+1];
+    int i = start;
+    int j = mid+1;
+    int k=0;
+    while(i&lt;=mid&amp;&amp;j&lt;=end) {
+        if(array[i]&lt;=array[j]) {
+            temp[k++] = array[i++];
+        }else {
+            temp[k++] = array[j++];
+            count += mid-i+1;//j在mid右侧已排好序，进入左侧后，
+                 //说明这个数字之前的逆序数为左侧数组中i后面的数字个数
+            count %= base;//每一步 取模防止溢出
+        }
+    }
+    while(i&lt;mid) {
+        temp[k++]=array[i++];
+    }
+    while(j&lt;end) {
+        temp[k++]=array[j++];
+    }
+    for(k = 0; k &lt; temp.length; k++) {
+        array[start+k]=temp[k];
+    }
+}
+</code></pre><p>}</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -703,71 +790,6 @@ public int FindGreatestSumOfSubArray(int[] array) {
 <h3 id="类或接口"><a href="#类或接口" class="headerlink" title="类或接口"></a>类或接口</h3><p>一个单词或多个单词分别举例<br>如果是一个单词，要求首字母大写<br>如果是多个单词，要求每个单词首字母大写（驼峰命名）<br>Adapter<br>ArrayAdapter</p>
 <h3 id="方法和变量"><a href="#方法和变量" class="headerlink" title="方法和变量"></a>方法和变量</h3><p>如果是一个单词，每个字母都小写<br>如果是多个单词，从第二个单词开始首字母大写<br>test（）<br>testFunction（）</p>
 <h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>如果是一个单词，所有字母大写<br>如说是多个单词，也是所有字母大写，但是用_分开<br>MAX<br>MAX_VALUE</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/12/Java基础-命名规则/">
-  Java基础-基本数据类型
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/12/Java基础-命名规则/"><span class="article-date">
-  2018-12-12
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <ul>
-<li>基本数据类型（4类8种）<ul>
-<li>整数型<ul>
-<li>byte 占一个字节 -128 到 127</li>
-<li>short 占两个字节 -2^15 到 2^15-1</li>
-<li>int 占四个字节 -2^31 到 2^31-1</li>
-<li>long 占八个字节 -2^63 到 2^63-1</li>
-</ul>
-</li>
-<li>浮点型 默认为double （浮点型为近似表示法，无法准确等于某个小数，只能是无限逼近，尽量避免浮点型之间的比较，比较时可以引入BigDemical，但会降低效率。<br>  所以，要比较浮点数是否相等，需要做的事情是：1.排除NaN和无穷 2.在精度范围内进行比较）<ul>
-<li>float 占四个字节 1位符号位 8位指数位 23位尾数或有效数字（基于IEEE754）</li>
-<li>double 占八个字节 1位符号位 11位指数位 52位尾数或有效数字（基于IEEE754）</li>
-</ul>
-</li>
-<li>字符型<ul>
-<li>char 占两个字节 0~65535</li>
-</ul>
-</li>
-<li>布尔型<ul>
-<li>boolean <ul>
-<li>boolean 理论上是占八分之一个字节，一个开关可以决定TRUE或False，但是Java中boolean 类型没有明确指定大小</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 
         
       </div>
