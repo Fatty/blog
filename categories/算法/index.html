@@ -8,7 +8,7 @@
 
 <title>
   
-    Category: 算法
+    分类: 算法
   
 </title>
 
@@ -77,22 +77,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">Tag</a>
+                <a href="javascript:;">标签</a>
                 
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">16</span></li></ul>
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">17</span></li></ul>
               </li>
             
           
@@ -146,6 +146,54 @@
       
           <h1>算法</h1>
 
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/21/剑指offer-二叉树深度/">
+  剑指offer-二叉树深度
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/21/剑指offer-二叉树深度/"><span class="article-date">
+  2018-12-21
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用递归深度遍历二叉树，每次取深度更高的子树。</p>
+<pre><code>/**
+</code></pre><p>public class TreeNode {<br>    int val = 0;<br>    TreeNode left = null;<br>    TreeNode right = null;</p>
+<pre><code>public TreeNode(int val) {
+    this.val = val;
+
+}
+</code></pre><p>}<br>*/<br>public class Solution {<br>    public int TreeDepth(TreeNode root) {<br>        if(root==null){<br>            return 0;<br>        }<br>        int a = TreeDepth(root.left);<br>        int b = TreeDepth(root.right);<br>        return 1+((a&gt;=b)?a:b);<br>    }<br>}</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -764,47 +812,11 @@ public int FindGreatestSumOfSubArray(int[] array) {
     </div>
   
 
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/10/动态规划思路/">
-  动态规划思路\
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/10/动态规划思路/"><span class="article-date">
-  2018-12-10
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
-	</span>
 
 
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="一句话讲明动态规划"><a href="#一句话讲明动态规划" class="headerlink" title="一句话讲明动态规划"></a>一句话讲明动态规划</h2><p>动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。<br>programming 特指一种表格法，并非编写计算机程序。<br>摘自算法导论 </p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-
+  <div class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/blog/categories/算法/page/2/">2</a><a class="extend next" rel="next" href="/blog/categories/算法/page/2/">下一页</a>
+  </div>
 
 
 

@@ -77,22 +77,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">Tag</a>
+                <a href="javascript:;">标签</a>
                 
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">16</span></li></ul>
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">17</span></li></ul>
               </li>
             
           
@@ -145,6 +145,54 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/21/剑指offer-二叉树深度/">
+  剑指offer-二叉树深度
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/21/剑指offer-二叉树深度/"><span class="article-date">
+  2018-12-21
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用递归深度遍历二叉树，每次取深度更高的子树。</p>
+<pre><code>/**
+</code></pre><p>public class TreeNode {<br>    int val = 0;<br>    TreeNode left = null;<br>    TreeNode right = null;</p>
+<pre><code>public TreeNode(int val) {
+    this.val = val;
+
+}
+</code></pre><p>}<br>*/<br>public class Solution {<br>    public int TreeDepth(TreeNode root) {<br>        if(root==null){<br>            return 0;<br>        }<br>        int a = TreeDepth(root.left);<br>        int b = TreeDepth(root.right);<br>        return 1+((a&gt;=b)?a:b);<br>    }<br>}</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -763,85 +811,10 @@ public int FindGreatestSumOfSubArray(int[] array) {
     </div>
   
 
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/13/Java基础-逻辑运算符与位运算符/">
-  Java基础-逻辑运算符与位运算符
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/13/Java基础-逻辑运算符与位运算符/"><span class="article-date">
-  2018-12-13
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
-<li>&amp; 与</li>
-<li>&amp;&amp; 与 左侧为false时 右侧不执行（短路）</li>
-<li>| 或</li>
-<li>|| 或 左侧为true 右侧不执行（短路）</li>
-<li>^ 异或</li>
-<li>! 非</li>
-</ul>
-<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><ul>
-<li>&amp; 与</li>
-<li>| 或</li>
-<li>^ 异或<ul>
-<li>特点：一个数据对另一个数据位异或两次，该数本身不变。</li>
-<li>例：不定义第三方变量，实现两个整数变量交换。</li>
-<li>解法1：<code>x = x + y; y = x - y; x = x - y;</code></li>
-<li>解法2：<code>x = x ^ y; y = x ^ y; x = x ^ y;</code></li>
-</ul>
-</li>
-<li>~ 按位取反</li>
-<li>&lt;&lt; 左移 左侧最高位丢弃，右边补齐0（左移几次就是乘以2的几次幂）</li>
-<li><blockquote>
-<blockquote>
-<p>右移 最高位是0，左边补0；最高位是1，左边补齐1（右移几次就是除2的几次幂）</p>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>无符号右移 无论最高位是0还是1，左边补齐0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>三目运算符 （关系表达式） ？ （关系表达式1） : (关系表达式2)；</li>
-</ul>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
 
 
   <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">Next</a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/page/2/">2</a><a class="extend next" rel="next" href="/blog/page/2/">下一页</a>
   </div>
 
 
