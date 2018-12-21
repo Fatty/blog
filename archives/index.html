@@ -8,7 +8,7 @@
 
 <title>
   
-    归档
+    Archive
   
 </title>
 
@@ -77,22 +77,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
+                <a href="javascript:;">Tag</a>
                 
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">17</span></li></ul>
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">18</span></li></ul>
               </li>
             
           
@@ -156,6 +156,67 @@
           <h1><a href="/blog/archives/2018" class="archive-year">2018</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/21/剑指offer-平衡二叉树/">
+  剑指offer-平衡二叉树
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/21/剑指offer-平衡二叉树/"><span class="article-date">
+  2018-12-21
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一棵二叉树，判断该二叉树是否是平衡二叉树。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>平衡二叉树特征为，左右子树的高度相差不超过1，平衡二叉树的常用实现方法有红黑树、替罪羊树、Treap、伸展树等。<br>此题和求二叉树深度的题目一样，递归到最小子树验证深度是否符合要求。</p>
+<pre><code>public class Solution {
+public boolean IsBalanced_Solution(TreeNode root) {
+    if(root==null){
+        return true;
+    }
+    boolean flag = true;
+    int l = TreeDepth(root.left);
+    int r = TreeDepth(root.right);
+    if( l-r &lt; -1 || l-r &gt;1){
+         flag=false;
+    }
+    return flag&amp;&amp;IsBalanced_Solution(root.left)&amp;&amp;IsBalanced_Solution(root.right);
+}
+public int TreeDepth(TreeNode root) {
+    if(root==null){
+        return 0;
+    }
+    int a = TreeDepth(root.left);
+    int b = TreeDepth(root.right);
+    return 1+((a&gt;=b)?a:b);
+}
+</code></pre><p>}</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -743,66 +804,10 @@ input[j] = input[i];
 
   
 
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/14/剑指offer-最大连续子序列和/">
-  剑指offer-最大连续子序列和
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/14/剑指offer-最大连续子序列和/"><span class="article-date">
-  2018-12-14
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>动态规划问题解题思路 O（n）</p>
-<pre><code>`public class Solution {
-public int FindGreatestSumOfSubArray(int[] array) {
-    int result = array[0];
-    int sum = array[0];
-    for(int i = 1; i &lt; array.length; i++){
-        if(array[i] + sum &gt; result){
-            result = sum + array[i];
-        }
-        if(sum + array[i] &lt; 0){
-            sum = 0;
-            continue;
-        }
-        sum = sum+array[i];
-    }
-    return result;
-}
-</code></pre><p>}`</p>
-
-        
-      </div>
-    </div>
-
-  
-
 
 
   <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="extend next" rel="next" href="/blog/archives/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="extend next" rel="next" href="/blog/archives/page/2/">Next</a>
   </div>
 
 

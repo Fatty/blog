@@ -8,17 +8,21 @@
 
 <title>
   
-    Category: teammates
+    剑指offer-平衡二叉树
   
 </title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jacob&#39;s blog">
-<meta property="og:url" content="/blog/categories/teammates/index.html">
+<meta name="description" content="题目描述输入一棵二叉树，判断该二叉树是否是平衡二叉树。 解题思路平衡二叉树特征为，左右子树的高度相差不超过1，平衡二叉树的常用实现方法有红黑树、替罪羊树、Treap、伸展树等。此题和求二叉树深度的题目一样，递归到最小子树验证深度是否符合要求。 public class Solution { public boolean IsBalanced_Solution(TreeNode root) {">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指offer-平衡二叉树">
+<meta property="og:url" content="/blog/2018/12/21/剑指offer-平衡二叉树/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
+<meta property="og:description" content="题目描述输入一棵二叉树，判断该二叉树是否是平衡二叉树。 解题思路平衡二叉树特征为，左右子树的高度相差不超过1，平衡二叉树的常用实现方法有红黑树、替罪羊树、Treap、伸展树等。此题和求二叉树深度的题目一样，递归到最小子树验证深度是否符合要求。 public class Solution { public boolean IsBalanced_Solution(TreeNode root) {">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-21T07:15:56.603Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jacob&#39;s blog">
+<meta name="twitter:title" content="剑指offer-平衡二叉树">
+<meta name="twitter:description" content="题目描述输入一棵二叉树，判断该二叉树是否是平衡二叉树。 解题思路平衡二叉树特征为，左右子树的高度相差不超过1，平衡二叉树的常用实现方法有红黑树、替罪羊树、Treap、伸展树等。此题和求二叉树深度的题目一样，递归到最小子树验证深度是否符合要求。 public class Solution { public boolean IsBalanced_Solution(TreeNode root) {">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -144,47 +148,57 @@
       
         <div style="max-width: 1000px">
       
-          <h1>teammates</h1>
-
-
+          <article id="post-剑指offer-平衡二叉树" class="article article-type-post">
+  
+    <h1 class="article-header">
+      剑指offer-平衡二叉树
+    </h1>
   
   
-    <div class="post-list">
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/11/teammates/">
-  teammates navigation\
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/11/teammates/"><span class="article-date">
-  2018-12-11
+  <div class="article-info">
+    <span class="article-date">
+  2018-12-21
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/teammates/">teammates</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
 	</span>
 
 
-        
+    
 
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="团队博客导航"><a href="#团队博客导航" class="headerlink" title="团队博客导航"></a>团队博客导航</h2><h3 id="沈赵"><a href="#沈赵" class="headerlink" title="沈赵"></a><a href="https://fatty.github.io/blog/" target="_blank" rel="noopener">沈赵</a></h3><h3 id="杨灿"><a href="#杨灿" class="headerlink" title="杨灿"></a><a href="https://nobugjames.github.io/blog/" target="_blank" rel="noopener">杨灿</a></h3><h3 id="郝培蓉"><a href="#郝培蓉" class="headerlink" title="郝培蓉"></a><a href="https://haopeirong.github.io/blog/" target="_blank" rel="noopener">郝培蓉</a></h3><h3 id="贾婉华"><a href="#贾婉华" class="headerlink" title="贾婉华"></a><a href="https://mollymolly233.github.io/blog/" target="_blank" rel="noopener">贾婉华</a></h3>
-        
-      </div>
-    </div>
+  </div>
+  <div class="article-entry">
+    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一棵二叉树，判断该二叉树是否是平衡二叉树。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>平衡二叉树特征为，左右子树的高度相差不超过1，平衡二叉树的常用实现方法有红黑树、替罪羊树、Treap、伸展树等。<br>此题和求二叉树深度的题目一样，递归到最小子树验证深度是否符合要求。</p>
+<pre><code>public class Solution {
+public boolean IsBalanced_Solution(TreeNode root) {
+    if(root==null){
+        return true;
+    }
+    boolean flag = true;
+    int l = TreeDepth(root.left);
+    int r = TreeDepth(root.right);
+    if( l-r &lt; -1 || l-r &gt;1){
+         flag=false;
+    }
+    return flag&amp;&amp;IsBalanced_Solution(root.left)&amp;&amp;IsBalanced_Solution(root.right);
+}
+public int TreeDepth(TreeNode root) {
+    if(root==null){
+        return 0;
+    }
+    int a = TreeDepth(root.left);
+    int b = TreeDepth(root.right);
+    return 1+((a&gt;=b)?a:b);
+}
+</code></pre><p>}</p>
 
-  
-    </div>
-  
+  </div>
+</article>
+
 
 
 

@@ -8,7 +8,7 @@
 
 <title>
   
-    分类: 算法
+    Category: 算法
   
 </title>
 
@@ -77,22 +77,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
+                <a href="javascript:;">Tag</a>
                 
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">17</span></li></ul>
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">18</span></li></ul>
               </li>
             
           
@@ -154,6 +154,64 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/blog/2018/12/14/剑指offer-最大连续子序列和/">
+  剑指offer-最大连续子序列和
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/14/剑指offer-最大连续子序列和/"><span class="article-date">
+  2018-12-14
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给一个数组，返回它的最大连续子序列的和，你会不会被他忽悠住？(子向量的长度至少是1)</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>动态规划问题解题思路 O（n）</p>
+<pre><code>`public class Solution {
+public int FindGreatestSumOfSubArray(int[] array) {
+    int result = array[0];
+    int sum = array[0];
+    for(int i = 1; i &lt; array.length; i++){
+        if(array[i] + sum &gt; result){
+            result = sum + array[i];
+        }
+        if(sum + array[i] &lt; 0){
+            sum = 0;
+            continue;
+        }
+        sum = sum+array[i];
+    }
+    return result;
+}
+</code></pre><p>}`</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/blog/2018/12/10/动态规划思路/">
   动态规划思路\
 </a>
@@ -190,7 +248,7 @@
 
 
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/categories/算法/">上一页</a><a class="page-number" href="/blog/categories/算法/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/blog/categories/算法/">Prev</a><a class="page-number" href="/blog/categories/算法/">1</a><span class="page-number current">2</span>
   </div>
 
 
