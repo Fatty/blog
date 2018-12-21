@@ -78,7 +78,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
@@ -92,7 +92,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">14</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">16</span></li></ul>
               </li>
             
           
@@ -145,6 +145,120 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/21/剑指offer-数字在排序数组中出现的次数/">
+  剑指offer-数字在排序数组中出现的次数
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/21/剑指offer-数字在排序数组中出现的次数/"><span class="article-date">
+  2018-12-21
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>统计一个数字在排序数组中出现的次数。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用二分法将数组切成多个小块，判断块中数字是否符合条件，在符合条件的区域内累加结果，不符合条件返回0。</p>
+<pre><code>public class Solution {
+public int GetNumberOfK(int [] array , int k) {
+    if(array.length==0) {
+        return 0;
+    }
+    int num = FindByHalf(array,0,array.length-1,k);
+    return num;
+}
+public int FindByHalf(int [] array,int l,int r,int k){
+    if( l &lt; 0 || r &gt; array.length-1)
+        return 0;
+    if(array[l] &gt; k || array[r] &lt; k || l &gt; r )
+        return 0;
+    if(array[l]==array[r] &amp;&amp; array[l]==k){
+        return r-l+1;
+    }else if(array[l]==array[r] &amp;&amp; array[l]!=k){
+        return 0;
+    }
+    int mid = (l+r)/2; 
+    return FindByHalf(array,l,mid,k)+FindByHalf(array,mid+1,r,k);
+
+}
+</code></pre><p>}</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/21/剑指offer-链表第一个公共节点/">
+  剑指offer-链表第一个公共节点
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/21/剑指offer-链表第一个公共节点/"><span class="article-date">
+  2018-12-21
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入两个链表，找出它们的第一个公共结点。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>循环遍历两个链表，设左右两个链表各有m,n个节点，总共循环遍历p次，p为m,n的最小公倍数</p>
+<pre><code>public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+    ListNode p1 = pHead1;
+    ListNode p2 = pHead2;
+    while(p1 != p2){
+        p1=(p1==null)?pHead2:p1.next;
+        p2=(p2==null)?pHead1:p2.next;
+    }
+    return p1;
+}
+</code></pre>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -715,91 +829,6 @@ public int FindGreatestSumOfSubArray(int[] array) {
 </li>
 <li>三目运算符 （关系表达式） ？ （关系表达式1） : (关系表达式2)；</li>
 </ul>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/12/Java基础-byte类型的问题/">
-  Java基础-byte类型的问题
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/12/Java基础-byte类型的问题/"><span class="article-date">
-  2018-12-12
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <p>一句话解决问题</p>
-<p>变量用于表示在程序中可能被改变的值。</p>
-<p>a和b是“变量”意味着这两值不确定、可能随时变化，编译器无法检查，也无法确定是否在byte字节范围之内， 它检查不了就会报错（可能丢失精度），如果是“常量”编译器就能够判断了。<br>当两个数是常量时才进行判断常量是否在byte类型范围内：若在，就相加；若不在，就报错，因为可能会丢失精度。<br>int类型为java默认类型 及时损失精度 也会正常输出</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/12/Java基础-基本数据类型/">
-  Java基础-命名规则
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/12/Java基础-基本数据类型/"><span class="article-date">
-  2018-12-12
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="包"><a href="#包" class="headerlink" title="包"></a>包</h3><p>其实就是文件夹 用于解决相同类名问题<br>包名要全部小写 一般用公司域名倒着写<br>com.xxxx.www</p>
-<h3 id="类或接口"><a href="#类或接口" class="headerlink" title="类或接口"></a>类或接口</h3><p>一个单词或多个单词分别举例<br>如果是一个单词，要求首字母大写<br>如果是多个单词，要求每个单词首字母大写（驼峰命名）<br>Adapter<br>ArrayAdapter</p>
-<h3 id="方法和变量"><a href="#方法和变量" class="headerlink" title="方法和变量"></a>方法和变量</h3><p>如果是一个单词，每个字母都小写<br>如果是多个单词，从第二个单词开始首字母大写<br>test（）<br>testFunction（）</p>
-<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>如果是一个单词，所有字母大写<br>如说是多个单词，也是所有字母大写，但是用_分开<br>MAX<br>MAX_VALUE</p>
 
         
       </div>
