@@ -8,21 +8,21 @@
 
 <title>
   
-    剑指offer-二叉树深度
+    剑指offer-不用加减乘除做加法
   
 </title>
 
-<meta name="description" content="题目描述输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。 解题思路使用递归深度遍历二叉树，每次取深度更高的子树。 /** public class TreeNode {    int val = 0;    TreeNode left = null;    TreeNode right = null; public TreeN">
+<meta name="description" content="题目描述写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路使用两个数先求‘&amp;amp;’操作并左移，得出进位，再用两个数做‘^’，得到非进位，，再递归带入当前函数，当进位为0后，最终得到结果。    public class Solution {    public int Add(int num1,int num2) {        int add = (n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer-二叉树深度">
-<meta property="og:url" content="/blog/2018/12/21/剑指offer-二叉树深度/index.html">
+<meta property="og:title" content="剑指offer-不用加减乘除做加法">
+<meta property="og:url" content="/blog/2018/12/31/剑指offer-不用加减乘除做加法/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="题目描述输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。 解题思路使用递归深度遍历二叉树，每次取深度更高的子树。 /** public class TreeNode {    int val = 0;    TreeNode left = null;    TreeNode right = null; public TreeN">
+<meta property="og:description" content="题目描述写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路使用两个数先求‘&amp;amp;’操作并左移，得出进位，再用两个数做‘^’，得到非进位，，再递归带入当前函数，当进位为0后，最终得到结果。    public class Solution {    public int Add(int num1,int num2) {        int add = (n">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-21T06:58:11.495Z">
+<meta property="og:updated_time" content="2018-12-31T06:52:21.581Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer-二叉树深度">
-<meta name="twitter:description" content="题目描述输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。 解题思路使用递归深度遍历二叉树，每次取深度更高的子树。 /** public class TreeNode {    int val = 0;    TreeNode left = null;    TreeNode right = null; public TreeN">
+<meta name="twitter:title" content="剑指offer-不用加减乘除做加法">
+<meta name="twitter:description" content="题目描述写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。 解题思路使用两个数先求‘&amp;amp;’操作并左移，得出进位，再用两个数做‘^’，得到非进位，，再递归带入当前函数，当进位为0后，最终得到结果。    public class Solution {    public int Add(int num1,int num2) {        int add = (n">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -148,17 +148,17 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-剑指offer-二叉树深度" class="article article-type-post">
+          <article id="post-剑指offer-不用加减乘除做加法" class="article article-type-post">
   
     <h1 class="article-header">
-      剑指offer-二叉树深度
+      剑指offer-不用加减乘除做加法
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2018-12-21
+  2018-12-31
 </span>
 
     
@@ -171,15 +171,8 @@
 
   </div>
   <div class="article-entry">
-    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用递归深度遍历二叉树，每次取深度更高的子树。</p>
-<pre><code>/**
-</code></pre><p>public class TreeNode {<br>    int val = 0;<br>    TreeNode left = null;<br>    TreeNode right = null;</p>
-<pre><code>public TreeNode(int val) {
-    this.val = val;
-
-}
-</code></pre><p>}<br>*/<br>public class Solution {<br>    public int TreeDepth(TreeNode root) {<br>        if(root==null){<br>            return 0;<br>        }<br>        int a = TreeDepth(root.left);<br>        int b = TreeDepth(root.right);<br>        return 1+((a&gt;=b)?a:b);<br>    }<br>}</p>
+    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>写一个函数，求两个整数之和，要求在函数体内不得使用+、-、*、/四则运算符号。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>使用两个数先求‘&amp;’操作并左移，得出进位，再用两个数做‘^’，得到非进位，，再递归带入当前函数，当进位为0后，最终得到结果。<br>    public class Solution {<br>    public int Add(int num1,int num2) {<br>        int add = (num1&amp;num2) &lt;&lt; 1;<br>        int stay = num1^num2;<br>        return cal(add,stay);<br>    }<br>    private int cal(int add,int stay){<br>        if(0 == add){<br>            return add|stay;<br>        }else{<br>            int add1 = (add&amp;stay) &lt;&lt; 1;<br>            int stay1 = add^stay;<br>            return cal(add1,stay1);<br>        }<br>    }<br>}</p>
 
   </div>
 </article>

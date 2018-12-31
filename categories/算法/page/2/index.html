@@ -8,7 +8,7 @@
 
 <title>
   
-    分类: 算法
+    Category: 算法
   
 </title>
 
@@ -77,22 +77,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
+                <a href="javascript:;">Tag</a>
                 
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">20</span></li></ul>
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
               </li>
             
           
@@ -146,6 +146,51 @@
       
           <h1>算法</h1>
 
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/17/剑指offer-求数组元素拼接最小问题/">
+  剑指offer-求数组元素拼接最小问题
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/17/剑指offer-求数组元素拼接最小问题/"><span class="article-date">
+  2018-12-17
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>本质来讲是做排序，此处所用排序方法为当s1+s2&gt;s2+s1时将s2排在前面，最终得到一个s1到sn拼接后最小的序列。 </p>
+<p>`import java.util.ArrayList;<br>import java.util.Collections;<br>import java.util.Comparator;<br>import java.util.Iterator;<br>public class Solution4{<br>    public String PrintMinNumber(int [] numbers) {<br>        ArrayList<string> a1 = new ArrayList<string>();<br>        for(int i = 0; i &lt; numbers.length; i++){<br>            a1.add(String.valueOf(numbers[i]));<br>        }<br>        Collections.sort(a1,new Comparator<object>() {<br>            public int compare(Object o1,Object o2) {<br>                String s1 = (String) o1 + (String) o2;<br>                String s2 = (String) o2 + (String) o1;<br>                return s1.compareTo(s2)&gt;0?1:-1;<br>            }<br>        });<br>        StringBuilder result = new StringBuilder();<br>        Iterator<string> it1 = a1.iterator();<br>        while(it1.hasNext()) {<br>            result.append(it1.next());<br>        }</string></object></string></string></p>
+<pre><code>    return result.toString();
+}
+</code></pre><p>}`</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -424,7 +469,7 @@ public int FindGreatestSumOfSubArray(int[] array) {
 
 
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/categories/算法/">上一页</a><a class="page-number" href="/blog/categories/算法/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/blog/categories/算法/">Prev</a><a class="page-number" href="/blog/categories/算法/">1</a><span class="page-number current">2</span>
   </div>
 
 
