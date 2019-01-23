@@ -78,7 +78,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">16</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">5</span></li></ul>
               </li>
             
           
@@ -92,7 +92,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
               </li>
             
           
@@ -156,6 +156,64 @@
           <h1><a href="/blog/archives/2019" class="archive-year">2019</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2019/01/23/linux_c_c++-头文件及动态链接库加载问题/">
+  linux c/c++-头文件及动态链接库加载问题
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2019/01/23/linux_c_c++-头文件及动态链接库加载问题/"><span class="article-date">
+  2019-01-23
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <ul>
+<li>头文件加载<ul>
+<li>-I /usr/local/include 表示将/usr/local/include作为第一个寻找头文件的目录，当用到</li>
+</ul>
+</li>
+<li>动态链接库<ul>
+<li>-L /usr/local/lib 表示将 /usr/local/lib 目录作为第一个寻找库文件的目录，寻找的顺序是：/usr/local/lib–&gt;/lib–&gt;/usr/lib</li>
+<li>-lmemcached表示在上面的lib的路径中寻找libmemcached.so动态库文件（如果gcc编译选项中加入了“-static”表示寻找libmemcached.a静态库文件），程序链接的库名是memcached</li>
+<li>链接器ld的选项有 -L，-rpath 和 -rpath-link，看了下 man ld，大致是这个意思：<ul>
+<li>-L: “链接”的时候，去找的目录，也就是所有的 -lFOO 选项里的库，都会先从 -L 指定的目录去找，然后是默认的地方。编译时的-L选项并不影响环境变量LDLIBRARYPATH，-L只是指定了程序编译连接时库的路径，并不影响程序执行时库的路径，系统还是会到默认路径下查找该程序所需要的库，如果找不到，还是会报错，类似cannot open shared object file。</li>
+<li>-rpath-link：这个也是用于“链接”的时候的，例如你显示指定的需要 FOO.so，但是 FOO.so 本身是需要 BAR.so 的，后者你并没有指定，而是 FOO.so 引用到它，这个时候，会先从 -rpath-link 给的路径里找。</li>
+<li>-rpath: “运行”的时候，去找的目录。运行的时候，要找 .so 文件，会从这个选项里指定的地方去找。对于交叉编译，交叉编译链接器需已经配置 –with-sysroot 选项才能起作用。也就是说，-rpath指定的路径会被记录在生成的可执行程序中，用于运行时查找需要加载的动态库。-rpath-link 则只用于链接时查找。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>当遇到不同机器相同系统下，链接通过但无法找到加载库时，考虑使用-rpath加链接库路径，援引我的老师的一句话，解释了我为什么遇到相同系统环境，链接库加载情况不同。ldd ./function 查看链接库加载情况。<blockquote>
+<p>因为虽然都是FreeBSD-11.2, 但是因为CPU不同是两个重新编译的内核<br>a服务器  是Freebsd-11.2 for X86   因为它不支持gelara数据为同步，所以购买服务器时购买了AMD的服务器， b服务器是Freebsd-11.2 for AMD</p>
+</blockquote>
+</li>
+</ul>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
