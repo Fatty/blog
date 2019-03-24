@@ -420,7 +420,9 @@ n--;
       <div class="article-entry">
         
           <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>一个整型数组里除了两个数字之外，其他的数字都出现了偶数次。请写程序找出这两个只出现一次的数字。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>用HashMap来存储值，新值被加入变量中，非新值直接被删除，最后通过Collection获取HashMap的values，使用iterator遍历Collection，获取未被删除的值。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>好吧，我是个智障，哈希方式使用了多余空间，应该用异或的 </p>
+<p>1） 异或方式，对每个整形数字从头异或，最终结果为单独的数字<br>    private int single(int num[]) {<br>        int res=0;<br>        for(int i=0;i&lt;num.length;i++) {<br>            res ^= num[i];<br>        }<br>        return res;<br>    }</p>
+<p>2） 用HashMap来存储值，新值被加入变量中，非新值直接被删除，最后通过Collection获取HashMap的values，使用iterator遍历Collection，获取未被删除的值。</p>
 <pre><code>import java.util.Collection;
 </code></pre><p>import java.util.HashMap;<br>import java.util.Iterator;<br>public class Solution {<br>    public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {<br>        HashMap&lt;Integer,Integer&gt; map= new HashMap&lt;Integer,Integer&gt;();<br>        for(int i = 0; i &lt;= array.length-1; i++){<br>            if(map.containsKey(array[i])) {<br>                map.remove(array[i]);<br>            }else {<br>                map.put(array[i], array[i]);<br>            }<br>        }<br>        Collection<integer> res = map.values();<br>        Iterator<integer> it =  res.iterator();<br>        num1[0] = it.next();<br>        num2[0] = it.next();<br>    }<br>}</integer></integer></p>
 
