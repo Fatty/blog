@@ -8,21 +8,17 @@
 
 <title>
   
-    剑指offer-求第N个丑数问题
+    Category: 面试经历
   
 </title>
 
-<meta name="description" content="题目描述把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 解题思路为了求取丑数数组，所有的丑数都可以由同一个公式取得：f(x,y,z) = (2^x)(3^y)(5^z)(x,y,z为自然数)每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。队列t2存乘2的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer-求第N个丑数问题">
-<meta property="og:url" content="/blog/2018/12/17/剑指offer-求第N个丑数问题/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jacob&#39;s blog">
+<meta property="og:url" content="/blog/categories/面试经历/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="题目描述把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 解题思路为了求取丑数数组，所有的丑数都可以由同一个公式取得：f(x,y,z) = (2^x)(3^y)(5^z)(x,y,z为自然数)每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。队列t2存乘2的">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-17T12:31:49.219Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer-求第N个丑数问题">
-<meta name="twitter:description" content="题目描述把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。 解题思路为了求取丑数数组，所有的丑数都可以由同一个公式取得：f(x,y,z) = (2^x)(3^y)(5^z)(x,y,z为自然数)每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。队列t2存乘2的">
+<meta name="twitter:title" content="Jacob&#39;s blog">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -148,67 +144,56 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-剑指offer-求第N个丑数问题" class="article article-type-post">
+          <h1>面试经历</h1>
+
+
   
-    <h1 class="article-header">
-      剑指offer-求第N个丑数问题
-    </h1>
   
+    <div class="post-list">
   
 
-  <div class="article-info">
-    <span class="article-date">
-  2018-12-17
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2019/04/14/百度面试经历/">
+  百度暑期实习面试经历——20190414
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2019/04/14/百度面试经历/"><span class="article-date">
+  2019-04-14
 </span>
-
-    
+</a>
+        
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/面试经历/">面试经历</a></li></ul>
 	</span>
 
 
-    
+        
 
-  </div>
-  <div class="article-entry">
-    <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>为了求取丑数数组，所有的丑数都可以由同一个公式取得：<br>f(x,y,z) = (2^x)<em>(3^y)</em>(5^z)(x,y,z为自然数)<br>每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。<br>队列t2存乘2的结果<br>队列t3存乘3的结果<br>队列t4存乘5的结果<br>数列中存储当前序列的丑数，一个丑数必定由另一个丑数乘2，3，5取得，因此，开始情况下t2,t3,t5三个队列的队头都为1，t2,t3,t5都为指针指向当前的位置（数组情况下是下标），当前数值被取走后，自动指向下一个数字并乘以对应的值，取得新队头，三个队头进行比较，每次取最小的队头存入丑数序列。<br><code>import java.util.ArrayList;
-public class Solution5 {
-    public int GetUglyNumber_Solution(int index) {
-        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
-        if (index &lt;= 6) {
-            return index;
-        } else {
-            int t2 = 0, t3 = 0, t5 = 0;
-            list.add(1);
-            for (int i = 1; list.size() &lt; index; i++) {
-                int a2 = list.get(t2) * 2;
-                int a3 = list.get(t3) * 3;
-                int a5 = list.get(t5) * 5;
-                int temp = a2 &lt; (a3 &lt; a5 ? a3 : a5) ? a2 : (a3 &lt; a5 ? a3 : a5);
-                list.add(temp);
-                System.out.println(&quot;temp :&quot; + temp);
-                System.out.println(&quot;t2 :&quot; + t2 + &quot;:&quot; + list.get(t2) * 2);
-                System.out.println(&quot;t3 :&quot; + t3 + &quot;:&quot; + list.get(t3) * 3);
-                System.out.println(&quot;t3 :&quot; + t5 + &quot;:&quot; + list.get(t5) * 5);
-                if (temp == list.get(t2) * 2) {
-                    t2++;
-                }
-                if (temp == list.get(t3) * 3) {
-                    t3++;
-                }
-                if (temp == list.get(t5) * 5) {
-                    t5++;
-                }
-            }
-        }
-        return list.get(index - 1);
-    }
-}</code>  </p>
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="面试岗位C-php"><a href="#面试岗位C-php" class="headerlink" title="面试岗位C++/php"></a>面试岗位C++/php</h3><p>面试结果：一面淘汰</p>
+<h3 id="面试问题"><a href="#面试问题" class="headerlink" title="面试问题"></a>面试问题</h3><p>1.是否熟悉linux</p>
+<p>2.描述一下进程通信</p>
+<p>3.描述一下守护进程 除了fork方式还有其他什么方式创建守护进程</p>
+<p>4.设计模式 包括哪几种 分别有什么特点</p>
+<p>5.平衡二叉树定义，写一个判断平衡二叉树的程序</p>
+<p>6.说一下计算机网络轮询方式</p>
+<p>7.进程调度算法，描述</p>
+<p>8.其他的关于计算机网络地聊了一点，还可以</p>
 
-  </div>
-</article>
+        
+      </div>
+    </div>
 
+  
+    </div>
+  
 
 
 
