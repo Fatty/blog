@@ -78,7 +78,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/面试经历/">面试经历</a><span class="category-list-count">1</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/面试经历/">面试经历</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
@@ -92,7 +92,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
               </li>
             
           
@@ -146,6 +146,151 @@
       
           <h1>设计模式</h1>
 
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2019/05/04/设计模式-适配器模式/">
+  适配器模式
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2019/05/04/设计模式-适配器模式/"><span class="article-date">
+  2019-05-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/设计模式/">设计模式</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h1><p>将各种截然不同的函数接口封装成统一的API。 </p>
+<p>例如：PHP中的数据库操作有MySQL,MySQLi,PDO三种，可以用适配器模式统一成一致，使不同的数据库操作，统一成一样的API。类似的场景还有cache适配器，可以将memcache,redis,file,apc等不同的缓存函数，统一成一致。</p>
+<p>首先定义一个接口(有几个方法，以及相应的参数)。然后，有几种不同的情况，就写几个类实现该接口。将完成相似功能的函数，统一成一致的方法。</p>
+<pre><code>&lt;?php
+</code></pre><p>interface IDatabase<br>{<br>    function connect($host, $user, $passwd, $dbname);<br>    function query($sql);<br>    function close();<br>}<br>class MySQL implements IDatabase<br>{<br>    protected $conn;<br>    function connect($host, $user, $passwd, $dbname)<br>    {<br>        $conn = mysql_connect($host, $user, $passwd);<br>        mysql_select_db($dbname, $conn);<br>        $this-&gt;conn = $conn;<br>    }</p>
+<pre><code>function query($sql)
+{
+    $res = mysql_query($sql, $this-&gt;conn);
+    return $res;
+}
+
+function close()
+{
+    mysql_close($this-&gt;conn);
+}
+</code></pre><p>}<br>class MySQLi implements IDatabase<br>{<br>    protected $conn;</p>
+<pre><code>function connect($host, $user, $passwd, $dbname)
+{
+    $conn = mysqli_connect($host, $user, $passwd, $dbname);
+    $this-&gt;conn = $conn;
+}
+
+function query($sql)
+{
+    return mysqli_query($this-&gt;conn, $sql);
+}
+
+function close()
+{
+    mysqli_close($this-&gt;conn);
+}
+</code></pre><p>}</p>
+<p>class PDO1 implements IDatabase<br>{<br>    protected $conn;<br>    function connect($host, $user, $passwd, $dbname)<br>    {<br>        $conn = new \PDO(“mysql:host=$host;dbname=$dbname”, $user, $passwd);<br>        $this-&gt;conn = $conn;<br>    }</p>
+<pre><code>function query($sql)
+{
+    return $this-&gt;conn-&gt;query($sql);
+}
+
+function close()
+{
+    unset($this-&gt;conn);
+}
+</code></pre><p>}<br>$db = new PDO1();<br>$db-&gt;connect(‘127.0.0.1’, ‘root’, ‘root’, ‘test’);<br>$db-&gt;query(‘show databases’);<br>$db-&gt;close();</p>
+<p>$db = MySQLi ();<br>$db-&gt;connect(‘127.0.0.1’, ‘root’, ‘root’, ‘test’);<br>$db-&gt;query(‘show databases’);<br>$db-&gt;close();</p>
+<p>$db = MySQl();<br>$db-&gt;connect(‘127.0.0.1’, ‘root’, ‘root’, ‘test’);<br>$db-&gt;query(‘show databases’);<br>$db-&gt;close();</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2019/05/04/创建模式/">
+  建造者模式
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2019/05/04/创建模式/"><span class="article-date">
+  2019-05-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/设计模式/">设计模式</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="建造者模式"><a href="#建造者模式" class="headerlink" title="建造者模式"></a>建造者模式</h1><p>建造者模式主要用于创建复杂对象，将复杂对象的表示与构造分离。</p>
+<p>例子：<br>    &lt;?php<br>/**</p>
+<ul>
+<li></li>
+<li>产品本身<br>*/<br>class Product {<br> private $_parts;<br> public function __construct() { $this-&gt;_parts = array(); }<br> public function add($part) { return array_push($this-&gt;_parts, $part); }<br>}</li>
+</ul>
+<p>/**</p>
+<ul>
+<li>建造者抽象类<br><em>
+</em>/<br>abstract class Builder {<br> public abstract function buildPart1();<br> public abstract function buildPart2();<br> public abstract function getResult();<br>}</li>
+</ul>
+<p>/**</p>
+<ul>
+<li></li>
+<li>具体建造者</li>
+<li>实现其具体方法<br>*/<br>class ConcreteBuilder extends Builder {<br> private $_product;<br> public function __construct() { $this-&gt;_product = new Product(); }<br> public function buildPart1() { $this-&gt;_product-&gt;add(“Part1”); }<br> public function buildPart2() { $this-&gt;_product-&gt;add(“Part2”); }<br> public function getResult() { return $this-&gt;_product; }<br>}<br>/**<ul>
+<li><em>导演者
+</em>/<br>class Director {<br>public function __construct(Builder $builder) {<br>   $builder-&gt;buildPart1();//导演指挥具体建造者生产产品<br>   $builder-&gt;buildPart2();<br>}<br>}</li>
+</ul>
+</li>
+</ul>
+<p>// client<br>$buidler = new ConcreteBuilder();<br>$director = new Director($buidler);<br>$product = $buidler-&gt;getResult();<br>echo “<pre>“;<br>var_dump($product);<br>echo “</pre>“;<br>/<em>输出： object(Product)#2 (1) {<br>[“_parts”:”Product”:private]=&gt;<br>array(2) {<br>    [0]=&gt;string(5) “Part1”<br>    [1]=&gt;string(5) “Part2”<br>}<br>} </em>/<br>?&gt;</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
