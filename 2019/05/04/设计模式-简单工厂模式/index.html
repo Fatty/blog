@@ -8,17 +8,21 @@
 
 <title>
   
-    Archive: 2018
+    简单工厂模式
   
 </title>
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jacob&#39;s blog">
-<meta property="og:url" content="/blog/archives/2018/page/3/index.html">
+<meta name="description" content="简单工厂模式简单工厂模式属于创建型模式，又叫做静态工厂方法模式，单不属于23中GOF设计模式之一。简单工厂模式是由一个工厂决定创建出哪一种产品类的实例，可以理解为不同工厂模式的一个特殊实现。  优点：根据外界给定的信息决定究竟应该创建哪个具体类的对象，明确区分了各自的职责和权力，有利于整个软件提结构的优化。 缺点：很明显工厂类集中了所有实例的创建逻辑，容易违反GRASPR的高内聚的责任分配原则。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="简单工厂模式">
+<meta property="og:url" content="/blog/2019/05/04/设计模式-简单工厂模式/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
+<meta property="og:description" content="简单工厂模式简单工厂模式属于创建型模式，又叫做静态工厂方法模式，单不属于23中GOF设计模式之一。简单工厂模式是由一个工厂决定创建出哪一种产品类的实例，可以理解为不同工厂模式的一个特殊实现。  优点：根据外界给定的信息决定究竟应该创建哪个具体类的对象，明确区分了各自的职责和权力，有利于整个软件提结构的优化。 缺点：很明显工厂类集中了所有实例的创建逻辑，容易违反GRASPR的高内聚的责任分配原则。">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-04T14:41:30.359Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jacob&#39;s blog">
+<meta name="twitter:title" content="简单工厂模式">
+<meta name="twitter:description" content="简单工厂模式简单工厂模式属于创建型模式，又叫做静态工厂方法模式，单不属于23中GOF设计模式之一。简单工厂模式是由一个工厂决定创建出哪一种产品类的实例，可以理解为不同工厂模式的一个特殊实现。  优点：根据外界给定的信息决定究竟应该创建哪个具体类的对象，明确区分了各自的职责和权力，有利于整个软件提结构的优化。 缺点：很明显工厂类集中了所有实例的创建逻辑，容易违反GRASPR的高内聚的责任分配原则。">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -144,70 +148,67 @@
       
         <div style="max-width: 1000px">
       
-          
-
+          <article id="post-设计模式-简单工厂模式" class="article article-type-post">
+  
+    <h1 class="article-header">
+      简单工厂模式
+    </h1>
   
   
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/blog/archives/2018" class="archive-year">2018</a></h1>
-        </div>
-        <div class="post-list">
-    
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/10/hello-world/">
-  Hello World
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/10/hello-world/"><span class="article-date">
-  2018-12-10
+  <div class="article-info">
+    <span class="article-date">
+  2019-05-04
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/设计模式/">设计模式</a></li></ul>
 	</span>
 
 
-        
+    
 
-      </div>
-      <div class="article-entry">
-        
-          <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        
-      </div>
-    </div>
-
-  
-
-
-
-  <div class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/archives/2018/page/2/">Prev</a><a class="page-number" href="/blog/archives/2018/">1</a><a class="page-number" href="/blog/archives/2018/page/2/">2</a><span class="page-number current">3</span>
   </div>
+  <div class="article-entry">
+    <h1 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h1><p>简单工厂模式属于创建型模式，又叫做静态工厂方法模式，单不属于23中GOF设计模式之一。简单工厂模式是由一个工厂决定创建出哪一种产品类的实例，可以理解为不同工厂模式的一个特殊实现。</p>
+<ul>
+<li>优点：根据外界给定的信息决定究竟应该创建哪个具体类的对象，明确区分了各自的职责和权力，有利于整个软件提结构的优化。</li>
+<li>缺点：很明显工厂类集中了所有实例的创建逻辑，容易违反GRASPR的高内聚的责任分配原则。</li>
+<li>抽象基类：类中定义一些方法，用以在子类中实现。</li>
+<li>继承自抽象基类的子类：实现基类中的抽象方法。</li>
+<li>工厂类：用以实例化所有对应的子类。</li>
+<li>实例代码：<br>  class SimpleFactoryPattern {<br>  public static function createObj($op){<pre><code>switch ($op){
+    case &apos;+&apos; :
+        return new OperationAdd();
+        break;
+    case &apos;-&apos; :
+        return new OperationSub();
+        break;
+    case &apos;*&apos; :
+        return new OperationMul();
+        break;
+    case &apos;/&apos; :
+        return new OperationDivide();
+    default :
+        break;
+}
+</code></pre>  }<br>}<br>/<em> 抽象类 </em>/<br>abstract class Operation{<br>  abstract public function getValue($num1,$num2);<br>}</li>
+</ul>
+<p>class OperationAdd extends Operation {<br>    public function getValue($num1, $num2) {<br>        return $num1 + $num2;<br>    }<br>}</p>
+<p>class OperationSub extends Operation {<br>    public function getValue($num1, $num2) {<br>        return $num1 - $num2;<br>    }<br>}</p>
+<p>class OperationMul extends Operation {<br>    public function getValue($num1, $num2) {<br>        return $num1 * $num2;<br>    }<br>}</p>
+<p>class OperationDivide extends Operation {<br>    public function getValue($num1, $num2) {<br>        try {<br>            if($num2 == 0){<br>                throw new Exception(“除数不能为0”);<br>            }else{<br>                return $num1 / $num2;<br>            }<br>        } catch (Exception $exc) {<br>            echo “error：”.$exc-&gt;getTraceAsString();<br>        }<br>    }<br>}</p>
+<p>$test = SimpleFactoryPattern::createObj(‘/‘);<br>$result = $test-&gt;getValue(10, 1);<br>echo $result;</p>
+
+  </div>
+</article>
 
 
-</div></section>
+
+
+
+
 
           <div class="main-footer">
   

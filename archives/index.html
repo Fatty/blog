@@ -78,7 +78,7 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/面试经历/">面试经历</a><span class="category-list-count">1</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/面试经历/">面试经历</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
@@ -92,7 +92,7 @@
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
               </li>
             
           
@@ -156,6 +156,72 @@
           <h1><a href="/blog/archives/2019" class="archive-year">2019</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2019/05/04/设计模式-简单工厂模式/">
+  简单工厂模式
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2019/05/04/设计模式-简单工厂模式/"><span class="article-date">
+  2019-05-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/设计模式/">设计模式</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h1><p>简单工厂模式属于创建型模式，又叫做静态工厂方法模式，单不属于23中GOF设计模式之一。简单工厂模式是由一个工厂决定创建出哪一种产品类的实例，可以理解为不同工厂模式的一个特殊实现。</p>
+<ul>
+<li>优点：根据外界给定的信息决定究竟应该创建哪个具体类的对象，明确区分了各自的职责和权力，有利于整个软件提结构的优化。</li>
+<li>缺点：很明显工厂类集中了所有实例的创建逻辑，容易违反GRASPR的高内聚的责任分配原则。</li>
+<li>抽象基类：类中定义一些方法，用以在子类中实现。</li>
+<li>继承自抽象基类的子类：实现基类中的抽象方法。</li>
+<li>工厂类：用以实例化所有对应的子类。</li>
+<li>实例代码：<br>  class SimpleFactoryPattern {<br>  public static function createObj($op){<pre><code>switch ($op){
+    case &apos;+&apos; :
+        return new OperationAdd();
+        break;
+    case &apos;-&apos; :
+        return new OperationSub();
+        break;
+    case &apos;*&apos; :
+        return new OperationMul();
+        break;
+    case &apos;/&apos; :
+        return new OperationDivide();
+    default :
+        break;
+}
+</code></pre>  }<br>}<br>/<em> 抽象类 </em>/<br>abstract class Operation{<br>  abstract public function getValue($num1,$num2);<br>}</li>
+</ul>
+<p>class OperationAdd extends Operation {<br>    public function getValue($num1, $num2) {<br>        return $num1 + $num2;<br>    }<br>}</p>
+<p>class OperationSub extends Operation {<br>    public function getValue($num1, $num2) {<br>        return $num1 - $num2;<br>    }<br>}</p>
+<p>class OperationMul extends Operation {<br>    public function getValue($num1, $num2) {<br>        return $num1 * $num2;<br>    }<br>}</p>
+<p>class OperationDivide extends Operation {<br>    public function getValue($num1, $num2) {<br>        try {<br>            if($num2 == 0){<br>                throw new Exception(“除数不能为0”);<br>            }else{<br>                return $num1 / $num2;<br>            }<br>        } catch (Exception $exc) {<br>            echo “error：”.$exc-&gt;getTraceAsString();<br>        }<br>    }<br>}</p>
+<p>$test = SimpleFactoryPattern::createObj(‘/‘);<br>$result = $test-&gt;getValue(10, 1);<br>echo $result;</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -606,49 +672,6 @@ n--;
 </ul>
 </li>
 </ul>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/21/剑指offer-数组中只出现一次的数字/">
-  剑指offer-数组中只出现一次的数字
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/21/剑指offer-数组中只出现一次的数字/"><span class="article-date">
-  2018-12-21
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>一个整型数组里除了两个数字之外，其他的数字都出现了偶数次。请写程序找出这两个只出现一次的数字。</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>好吧，我是个智障，哈希方式使用了多余空间，应该用异或的 </p>
-<p>1） 异或方式，对每个整形数字从头异或，最终结果为单独的数字<br>    private int single(int num[]) {<br>        int res=0;<br>        for(int i=0;i&lt;num.length;i++) {<br>            res ^= num[i];<br>        }<br>        return res;<br>    }</p>
-<p>2） 用HashMap来存储值，新值被加入变量中，非新值直接被删除，最后通过Collection获取HashMap的values，使用iterator遍历Collection，获取未被删除的值。</p>
-<pre><code>import java.util.Collection;
-</code></pre><p>import java.util.HashMap;<br>import java.util.Iterator;<br>public class Solution {<br>    public void FindNumsAppearOnce(int [] array,int num1[] , int num2[]) {<br>        HashMap&lt;Integer,Integer&gt; map= new HashMap&lt;Integer,Integer&gt;();<br>        for(int i = 0; i &lt;= array.length-1; i++){<br>            if(map.containsKey(array[i])) {<br>                map.remove(array[i]);<br>            }else {<br>                map.put(array[i], array[i]);<br>            }<br>        }<br>        Collection<integer> res = map.values();<br>        Iterator<integer> it =  res.iterator();<br>        num1[0] = it.next();<br>        num2[0] = it.next();<br>    }<br>}</integer></integer></p>
 
         
       </div>
