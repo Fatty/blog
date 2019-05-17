@@ -77,22 +77,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/面试经历/">面试经历</a><span class="category-list-count">1</span></li></ul>
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/计算机网络/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/面试经历/">面试经历</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">Tag</a>
+                <a href="javascript:;">标签</a>
                 
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">10</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
               </li>
             
           
@@ -145,6 +145,79 @@
         <div style="max-width: 1000px">
       
           
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2018/12/17/剑指offer-求第N个丑数问题/">
+  剑指offer-求第N个丑数问题
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2018/12/17/剑指offer-求第N个丑数问题/"><span class="article-date">
+  2018-12-17
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>把只包含质因子2、3和5的数称作丑数（Ugly Number）。例如6、8都是丑数，但14不是，因为它包含质因子7。 习惯上我们把1当做是第一个丑数。求按从小到大的顺序的第N个丑数。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>为了求取丑数数组，所有的丑数都可以由同一个公式取得：<br>f(x,y,z) = (2^x)<em>(3^y)</em>(5^z)(x,y,z为自然数)<br>每次结果参差不齐，所以采用三个队列存储当前最新得到的丑数。<br>队列t2存乘2的结果<br>队列t3存乘3的结果<br>队列t4存乘5的结果<br>数列中存储当前序列的丑数，一个丑数必定由另一个丑数乘2，3，5取得，因此，开始情况下t2,t3,t5三个队列的队头都为1，t2,t3,t5都为指针指向当前的位置（数组情况下是下标），当前数值被取走后，自动指向下一个数字并乘以对应的值，取得新队头，三个队头进行比较，每次取最小的队头存入丑数序列。<br><code>import java.util.ArrayList;
+public class Solution5 {
+    public int GetUglyNumber_Solution(int index) {
+        ArrayList&lt;Integer&gt; list = new ArrayList&lt;Integer&gt;();
+        if (index &lt;= 6) {
+            return index;
+        } else {
+            int t2 = 0, t3 = 0, t5 = 0;
+            list.add(1);
+            for (int i = 1; list.size() &lt; index; i++) {
+                int a2 = list.get(t2) * 2;
+                int a3 = list.get(t3) * 3;
+                int a5 = list.get(t5) * 5;
+                int temp = a2 &lt; (a3 &lt; a5 ? a3 : a5) ? a2 : (a3 &lt; a5 ? a3 : a5);
+                list.add(temp);
+                System.out.println(&quot;temp :&quot; + temp);
+                System.out.println(&quot;t2 :&quot; + t2 + &quot;:&quot; + list.get(t2) * 2);
+                System.out.println(&quot;t3 :&quot; + t3 + &quot;:&quot; + list.get(t3) * 3);
+                System.out.println(&quot;t3 :&quot; + t5 + &quot;:&quot; + list.get(t5) * 5);
+                if (temp == list.get(t2) * 2) {
+                    t2++;
+                }
+                if (temp == list.get(t3) * 3) {
+                    t3++;
+                }
+                if (temp == list.get(t5) * 5) {
+                    t5++;
+                }
+            }
+        }
+        return list.get(index - 1);
+    }
+}</code>  </p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -709,50 +782,10 @@ public int FindGreatestSumOfSubArray(int[] array) {
     </div>
   
 
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/blog/2018/12/10/动态规划思路/">
-  动态规划思路\
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/blog/2018/12/10/动态规划思路/"><span class="article-date">
-  2018-12-10
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法/">算法</a></li></ul>
-	</span>
-
-
-        
-
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="一句话讲明动态规划"><a href="#一句话讲明动态规划" class="headerlink" title="一句话讲明动态规划"></a>一句话讲明动态规划</h2><p>动态规划与分治方法相似，都是通过组合子问题的解来求解原问题。<br>programming 特指一种表格法，并非编写计算机程序。<br>摘自算法导论 </p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
 
 
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/blog/page/2/">Prev</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/4/">Next</a>
+    <a class="extend prev" rel="prev" href="/blog/page/2/">上一页</a><a class="page-number" href="/blog/">1</a><a class="page-number" href="/blog/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/blog/page/4/">4</a><a class="extend next" rel="next" href="/blog/page/4/">下一页</a>
   </div>
 
 
