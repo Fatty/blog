@@ -8,21 +8,17 @@
 
 <title>
   
-    Java基础-逻辑运算符与位运算符
+    Archive: 2019/8
   
 </title>
 
-<meta name="description" content="逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。 解法1：x = x + y; y = x - y; x = x - y; 解法2：x =">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Java基础-逻辑运算符与位运算符">
-<meta property="og:url" content="/blog/2018/12/13/Java基础-逻辑运算符与位运算符/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jacob&#39;s blog">
+<meta property="og:url" content="/blog/archives/2019/08/index.html">
 <meta property="og:site_name" content="Jacob&#39;s blog">
-<meta property="og:description" content="逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。 解法1：x = x + y; y = x - y; x = x - y; 解法2：x =">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-13T15:11:30.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java基础-逻辑运算符与位运算符">
-<meta name="twitter:description" content="逻辑运算符 &amp;amp; 与 &amp;amp;&amp;amp; 与 左侧为false时 右侧不执行（短路） | 或 || 或 左侧为true 右侧不执行（短路） ^ 异或 ! 非  位运算符 &amp;amp; 与 | 或 ^ 异或 特点：一个数据对另一个数据位异或两次，该数本身不变。 例：不定义第三方变量，实现两个整数变量交换。 解法1：x = x + y; y = x - y; x = x - y; 解法2：x =">
+<meta name="twitter:title" content="Jacob&#39;s blog">
 
 
   <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
@@ -148,74 +144,82 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-Java基础-逻辑运算符与位运算符" class="article article-type-post">
-  
-    <h1 class="article-header">
-      Java基础-逻辑运算符与位运算符
-    </h1>
-  
-  
+          
 
-  <div class="article-info">
-    <span class="article-date">
-  2018-12-13
-</span>
-
+  
+  
     
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <h1><a href="/blog/archives/2019" class="archive-year">2019</a></h1>
+        </div>
+        <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/blog/2019/08/16/一致性hash/">
+  一致性hash
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/blog/2019/08/16/一致性hash/"><span class="article-date">
+  2019-08-16
+</span>
+</a>
+        
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/语言基础/">语言基础</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法笔记/">算法笔记</a></li></ul>
 	</span>
 
 
-    
+        
 
-  </div>
-  <div class="article-entry">
-    <h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><ul>
-<li>&amp; 与</li>
-<li>&amp;&amp; 与 左侧为false时 右侧不执行（短路）</li>
-<li>| 或</li>
-<li>|| 或 左侧为true 右侧不执行（短路）</li>
-<li>^ 异或</li>
-<li>! 非</li>
-</ul>
-<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><ul>
-<li>&amp; 与</li>
-<li>| 或</li>
-<li>^ 异或<ul>
-<li>特点：一个数据对另一个数据位异或两次，该数本身不变。</li>
-<li>例：不定义第三方变量，实现两个整数变量交换。</li>
-<li>解法1：<code>x = x + y; y = x - y; x = x - y;</code></li>
-<li>解法2：<code>x = x ^ y; y = x ^ y; x = x ^ y;</code></li>
-</ul>
-</li>
-<li>~ 按位取反</li>
-<li>&lt;&lt; 左移 左侧最高位丢弃，右边补齐0（左移几次就是乘以2的几次幂）</li>
-<li><blockquote>
-<blockquote>
-<p>右移 最高位是0，左边补0；最高位是1，左边补齐1（右移几次就是除2的几次幂）</p>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>无符号右移 无论最高位是0还是1，左边补齐0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li>三目运算符 （关系表达式） ？ （关系表达式1） : (关系表达式2)；</li>
-</ul>
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="一致性hash"><a href="#一致性hash" class="headerlink" title="一致性hash"></a>一致性hash</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">面试必备：什么是一致性Hash算法？ - 后知后觉的文章 - 知乎</span><br><span class="line">https://zhuanlan.zhihu.com/p/34985026</span><br></pre></td></tr></table></figure>
+<h2 id="Redis集群的使用"><a href="#Redis集群的使用" class="headerlink" title="Redis集群的使用"></a>Redis集群的使用</h2><p>在使用Redis集群的时候，为了保证Redis的高可用性，提高Redis读写性能，最简单的方式会做主从复制，组成Master-Master或Master-Slave的形式，或者搭建Redis集群，进行数据的读写分离，类似于数据的主从复制和读写分离。如下图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD   </span><br><span class="line">    写请求--&gt;Master</span><br><span class="line">    Master--&gt;Slave1</span><br><span class="line">    Master--&gt;Slave2</span><br><span class="line">    读请求--&gt;Slave1</span><br><span class="line">    读请求--&gt;Slave2</span><br></pre></td></tr></table></figure>
+<p>当数据量很大的时候就要对数据库进行分库分表，Redis也如。录入有2000w条数据，我们可以部署8台缓存服务器，每台500w数据，并进行主从复制，得到4组主从模式的缓存服务组。</p>
+<p>由于规则是随机的，我们的一条数据可能存在于任意服务器上，我们使用类似分库分表的规则按照Hash、取模、按类别、按照某一字段值等等常见的规则取值，此时，我们采用hash的方式。</p>
+<h2 id="为Redis集群使用Hash"><a href="#为Redis集群使用Hash" class="headerlink" title="为Redis集群使用Hash"></a>为Redis集群使用Hash</h2><p>由于我们按照Hash规则进行将资源定位到特殊服务器，因此可以大大提升服务性能，不必遍历所有服务器组。</p>
+<h2 id="使用Hash的问题"><a href="#使用Hash的问题" class="headerlink" title="使用Hash的问题"></a>使用Hash的问题</h2><p>上述方式虽然提升了性能，我们不再需要对Redis服务器组进行遍历，但是当服务器数量变动时候，所有缓存位置都将发生改变。</p>
+<p>当有4组服务器组时</p>
+<p>loc = hash(资源) % 4 = 2</p>
+<p>当扩充到7台服务器组以后</p>
+<p>loc = hash(资源) % 7 = ?</p>
+<p>换句话说，当服务器数量发生改变时，所有缓存在一定时间内是失效的，当应用无法从缓存中获取数据时，则会向后端数据库请求数据。</p>
+<p>为了解决这个问题，提出了一致性哈希算法。</p>
+<h2 id="一致性Hash是什么"><a href="#一致性Hash是什么" class="headerlink" title="一致性Hash是什么"></a>一致性Hash是什么</h2><p>一致性Hash算法也是使用取模的方法，只是，刚才描述的取模法是对服务器的数量进行取模，而一致性Hash算法是对2^32取模，什么意思呢？简单来说，一致性Hash算法将整个哈希值空间组织成一个虚拟的圆环，如假设某哈希函数H的值空间为0-2^32-1（即哈希值是一个32位无符号整形），N台服务器的地址可采用计算公式表示ip(i)表示第i台服务器的ip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loc(i) = hash(ip(i))</span><br></pre></td></tr></table></figure></p>
+<p>按照规则，N台服务器的地址在一个环上，整个空间按照顺时针方向组织。正上方的点代表0，以此类推，到2^32-1可以表示为环上的地址。</p>
+<p>接下来使用如下算法定位数据访问到相应服务器：将数据key使用相同的函数Hash计算出哈希值，并确定此数据在环上的位置，从此位置沿环顺时针“行走”，第一台遇到的服务器就是其应该定位到的服务器。</p>
+<p>根据一致性Hash算法，地址0~loc(i)的资源均存储到服务器i上。</p>
+<h2 id="一致性Hash算法的容错性和可扩展性"><a href="#一致性Hash算法的容错性和可扩展性" class="headerlink" title="一致性Hash算法的容错性和可扩展性"></a>一致性Hash算法的容错性和可扩展性</h2><p>如果当服务器i宕机，受影响的数据只有地址从loc(i-1)+1到loc(i)-1的数据。</p>
+<p>当加入一台新服务器x到i-1和i之间，此时，受影响的数据只有loc(i-1)+1到loc(x)的数据。</p>
+<p>因此，一致性hash对于节点的增减都只会重定位一小部分环空间数据，具有较好的容错性和扩展性。</p>
+<h2 id="Hash环的数据倾斜问题"><a href="#Hash环的数据倾斜问题" class="headerlink" title="Hash环的数据倾斜问题"></a>Hash环的数据倾斜问题</h2><p>一致性Hash算法在节点太少时，节点在换上分布不均匀，会造成大部分环上数据被缓存在某一台服务器上（也就是数据倾斜）。</p>
+<p>此时，为了解决这种数据倾斜问，一致性Hash算法，引入了虚拟节点机制，即，为一个真实节点计算出多个虚拟节点，这样有效推动环上数据，尽量均匀分布到每个真实节点。</p>
+<h2 id="值得注意的是Redis采用的不是一致性Hash"><a href="#值得注意的是Redis采用的不是一致性Hash" class="headerlink" title="值得注意的是Redis采用的不是一致性Hash"></a>值得注意的是Redis采用的不是一致性Hash</h2><p>Redis采用的算法为Hash Slot</p>
+<p>redis cluster 有固定的 16384 个 hash slot，对每个 key 计算 CRC16 值，然后对 16384 取模，可以获取 key 对应的 hash slot。</p>
+<p>redis cluster 中每个 master 都会持有部分 slot，比如有 3 个 master，那么可能每个 master 持有 5000 多个 hash slot。hash slot 让 node 的增加和移除很简单，增加一个 master，就将其他 master 的 hash slot 移动部分过去，减少一个 master，就将它的 hash slot 移动到其他 master 上去。移动 hash slot 的成本是非常低的。客户端的 api，可以对指定的数据，让他们走同一个 hash slot，通过 hash tag 来实现。</p>
 
-  </div>
-</article>
+        
+      </div>
+    </div>
+
+  
 
 
 
 
-
-
+</div></section>
 
           <div class="main-footer">
   

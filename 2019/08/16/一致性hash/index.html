@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    一致性hash
+  
+</title>
+
+<meta name="description" content="一致性hash12面试必备：什么是一致性Hash算法？ - 后知后觉的文章 - 知乎https://zhuanlan.zhihu.com/p/34985026 Redis集群的使用在使用Redis集群的时候，为了保证Redis的高可用性，提高Redis读写性能，最简单的方式会做主从复制，组成Master-Master或Master-Slave的形式，或者搭建Redis集群，进行数据的读写分离，类似">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一致性hash">
+<meta property="og:url" content="/blog/2019/08/16/一致性hash/index.html">
+<meta property="og:site_name" content="Jacob&#39;s blog">
+<meta property="og:description" content="一致性hash12面试必备：什么是一致性Hash算法？ - 后知后觉的文章 - 知乎https://zhuanlan.zhihu.com/p/34985026 Redis集群的使用在使用Redis集群的时候，为了保证Redis的高可用性，提高Redis读写性能，最简单的方式会做主从复制，组成Master-Master或Master-Slave的形式，或者搭建Redis集群，进行数据的读写分离，类似">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-08-16T08:42:37.838Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一致性hash">
+<meta name="twitter:description" content="一致性hash12面试必备：什么是一致性Hash算法？ - 后知后觉的文章 - 知乎https://zhuanlan.zhihu.com/p/34985026 Redis集群的使用在使用Redis集群的时候，为了保证Redis的高可用性，提高Redis读写性能，最简单的方式会做主从复制，组成Master-Master或Master-Slave的形式，或者搭建Redis集群，进行数据的读写分离，类似">
+
+
+  <link rel="alternative" href="/atom.xml" title="Jacob&#39;s blog" type="application/atom+xml">
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/blog/perfect-scrollbar/css/perfect-scrollbar.min.css">
+<link rel="stylesheet" href="/blog/styles/main.css">
+
+
+
+
+
+
+</head>
+<body class="monochrome">
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/blog/">Jacob&#39;s blog</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/blog/">Jacob&#39;s blog</a></h1>
+    
+      <p class="subtitle">
+        notebook
+      </p>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <a href="/about"><img src="/blog/images/cc/about.jpg"></a>
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/linux/">linux</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/markdown基本用法/">markdown基本用法</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/teammates/">teammates</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法/">算法</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/算法笔记/">算法笔记</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/计算机网络/">计算机网络</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/设计模式/">设计模式</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/语言基础/">语言基础</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/面试经历/">面试经历</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2019/">2019</a><span class="archive-list-count">12</span></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2018/">2018</a><span class="archive-list-count">21</span></li></ul>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="/blog/" title="Homepage">Homepage</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/blog/archives" title="By Year">By Year</a>
+              </li>
+            
+          
+        </ul>
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://fatty.github.io/blog/archives/" title="沈赵" target="_blank" rel="noopener">沈赵</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://github.com/Fatty" title="Github" target="_blank" rel="noopener">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="/blog/atom.xml" title="RSS">RSS</a>
+              </li>
+            
+          
+        </ul>
+      
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-一致性hash" class="article article-type-post">
+  
+    <h1 class="article-header">
+      一致性hash
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2019-08-16
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/算法笔记/">算法笔记</a></li></ul>
+	</span>
+
+
+    
+
+  </div>
+  <div class="article-entry">
+    <h1 id="一致性hash"><a href="#一致性hash" class="headerlink" title="一致性hash"></a>一致性hash</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">面试必备：什么是一致性Hash算法？ - 后知后觉的文章 - 知乎</span><br><span class="line">https://zhuanlan.zhihu.com/p/34985026</span><br></pre></td></tr></table></figure>
+<h2 id="Redis集群的使用"><a href="#Redis集群的使用" class="headerlink" title="Redis集群的使用"></a>Redis集群的使用</h2><p>在使用Redis集群的时候，为了保证Redis的高可用性，提高Redis读写性能，最简单的方式会做主从复制，组成Master-Master或Master-Slave的形式，或者搭建Redis集群，进行数据的读写分离，类似于数据的主从复制和读写分离。如下图：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TD   </span><br><span class="line">    写请求--&gt;Master</span><br><span class="line">    Master--&gt;Slave1</span><br><span class="line">    Master--&gt;Slave2</span><br><span class="line">    读请求--&gt;Slave1</span><br><span class="line">    读请求--&gt;Slave2</span><br></pre></td></tr></table></figure>
+<p>当数据量很大的时候就要对数据库进行分库分表，Redis也如。录入有2000w条数据，我们可以部署8台缓存服务器，每台500w数据，并进行主从复制，得到4组主从模式的缓存服务组。</p>
+<p>由于规则是随机的，我们的一条数据可能存在于任意服务器上，我们使用类似分库分表的规则按照Hash、取模、按类别、按照某一字段值等等常见的规则取值，此时，我们采用hash的方式。</p>
+<h2 id="为Redis集群使用Hash"><a href="#为Redis集群使用Hash" class="headerlink" title="为Redis集群使用Hash"></a>为Redis集群使用Hash</h2><p>由于我们按照Hash规则进行将资源定位到特殊服务器，因此可以大大提升服务性能，不必遍历所有服务器组。</p>
+<h2 id="使用Hash的问题"><a href="#使用Hash的问题" class="headerlink" title="使用Hash的问题"></a>使用Hash的问题</h2><p>上述方式虽然提升了性能，我们不再需要对Redis服务器组进行遍历，但是当服务器数量变动时候，所有缓存位置都将发生改变。</p>
+<p>当有4组服务器组时</p>
+<p>loc = hash(资源) % 4 = 2</p>
+<p>当扩充到7台服务器组以后</p>
+<p>loc = hash(资源) % 7 = ?</p>
+<p>换句话说，当服务器数量发生改变时，所有缓存在一定时间内是失效的，当应用无法从缓存中获取数据时，则会向后端数据库请求数据。</p>
+<p>为了解决这个问题，提出了一致性哈希算法。</p>
+<h2 id="一致性Hash是什么"><a href="#一致性Hash是什么" class="headerlink" title="一致性Hash是什么"></a>一致性Hash是什么</h2><p>一致性Hash算法也是使用取模的方法，只是，刚才描述的取模法是对服务器的数量进行取模，而一致性Hash算法是对2^32取模，什么意思呢？简单来说，一致性Hash算法将整个哈希值空间组织成一个虚拟的圆环，如假设某哈希函数H的值空间为0-2^32-1（即哈希值是一个32位无符号整形），N台服务器的地址可采用计算公式表示ip(i)表示第i台服务器的ip<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loc(i) = hash(ip(i))</span><br></pre></td></tr></table></figure></p>
+<p>按照规则，N台服务器的地址在一个环上，整个空间按照顺时针方向组织。正上方的点代表0，以此类推，到2^32-1可以表示为环上的地址。</p>
+<p>接下来使用如下算法定位数据访问到相应服务器：将数据key使用相同的函数Hash计算出哈希值，并确定此数据在环上的位置，从此位置沿环顺时针“行走”，第一台遇到的服务器就是其应该定位到的服务器。</p>
+<p>根据一致性Hash算法，地址0~loc(i)的资源均存储到服务器i上。</p>
+<h2 id="一致性Hash算法的容错性和可扩展性"><a href="#一致性Hash算法的容错性和可扩展性" class="headerlink" title="一致性Hash算法的容错性和可扩展性"></a>一致性Hash算法的容错性和可扩展性</h2><p>如果当服务器i宕机，受影响的数据只有地址从loc(i-1)+1到loc(i)-1的数据。</p>
+<p>当加入一台新服务器x到i-1和i之间，此时，受影响的数据只有loc(i-1)+1到loc(x)的数据。</p>
+<p>因此，一致性hash对于节点的增减都只会重定位一小部分环空间数据，具有较好的容错性和扩展性。</p>
+<h2 id="Hash环的数据倾斜问题"><a href="#Hash环的数据倾斜问题" class="headerlink" title="Hash环的数据倾斜问题"></a>Hash环的数据倾斜问题</h2><p>一致性Hash算法在节点太少时，节点在换上分布不均匀，会造成大部分环上数据被缓存在某一台服务器上（也就是数据倾斜）。</p>
+<p>此时，为了解决这种数据倾斜问，一致性Hash算法，引入了虚拟节点机制，即，为一个真实节点计算出多个虚拟节点，这样有效推动环上数据，尽量均匀分布到每个真实节点。</p>
+<h2 id="值得注意的是Redis采用的不是一致性Hash"><a href="#值得注意的是Redis采用的不是一致性Hash" class="headerlink" title="值得注意的是Redis采用的不是一致性Hash"></a>值得注意的是Redis采用的不是一致性Hash</h2><p>Redis采用的算法为Hash Slot</p>
+<p>redis cluster 有固定的 16384 个 hash slot，对每个 key 计算 CRC16 值，然后对 16384 取模，可以获取 key 对应的 hash slot。</p>
+<p>redis cluster 中每个 master 都会持有部分 slot，比如有 3 个 master，那么可能每个 master 持有 5000 多个 hash slot。hash slot 让 node 的增加和移除很简单，增加一个 master，就将其他 master 的 hash slot 移动部分过去，减少一个 master，就将它的 hash slot 移动到其他 master 上去。移动 hash slot 的成本是非常低的。客户端的 api，可以对指定的数据，让他们走同一个 hash slot，通过 hash tag 来实现。</p>
+
+  </div>
+</article>
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2019 Jacob&#39;s blog - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/blog/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/blog/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/blog/PhotoSwipe/photoswipe.js"></script>
+  <script src="/blog/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/blog/perfect-scrollbar/js/min/perfect-scrollbar.min.js"></script>
+<script src="/blog/scripts/main.js"></script>
+
+</body>
+</html>
